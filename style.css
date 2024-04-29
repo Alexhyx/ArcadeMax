@@ -1,13 +1,19 @@
 body {
     background-color: #f6f3ffff;
+    margin: 0px; /*without this there is whitespace on sides that looks bad*/
+    margin-top: -1.5%; /*Otherwise there is top whitespace*/
     }
+
 header{
     width: 100%;
+    background-color: #170a60ff;
 }
+
 #above-navbar {
     background-color: #170a60ff;
     height:20%;
     }
+
 nav {
      background-color: #845698ff;
      text-align:center;
