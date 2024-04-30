@@ -50,4 +50,31 @@ li a:hover {
   }
 
 
+.auth-buttons {
+    position: absolute;
+    right: 20px;
+    top: 10px; /* Adjust this value based on your header's height */
+}
+
+#loginBtn, #signupBtn {
+    padding: 8px 16px;
+    margin-left: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: #845698ff; /* Similar to your nav background for consistency */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#signupBtn {
+    background-color: #170a60ff; /* Darker color for signup to differentiate */
+}
+
+button:hover {
+    background-color: #c9a6d8ff; /* Hover effect matching your link hover effect */
+}
+
+
     
