@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Report Issue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id = "above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="profileBtn">Profile</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="user-input-area">
+            <form class="issue-form">
+                <p>Type of Issue</p>
+                <input type="radio" id="user"> 
+                <label for="user">Inappropriate Content / Behavior from Other Users</label><br>
+                <input type="radio" id="website">
+                <label for="website">Website Issue</label><br>
+                
+                <p>Please enter the link to the issue</p>
+                <textarea class="link-textbox""></textarea>
+
+                <p>Please describe the issue</p>
+                <textarea class="description-textbox""></textarea><br>
+
+                <a href="#"> <!--Link to a confirmation page later-->
+                    <input type="submit" value="Submit">
+                </a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
