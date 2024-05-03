@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
     <header>
-        <div id = "above-navbar">
+        <div id="above-navbar">
             <h1 style="color:#f6f3ffff">ArcadeMax</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
@@ -25,23 +26,31 @@
         </div>
     </header>
 
-    <main>
-        <div class="profile">
-            <div class="profile-left">
-                <div class="profile-picture">
-                    <img src="profile-picture.jpg" alt="Profile Picture">
+    <main class="container">
+        <div id="profile">
+            <div id="profile-left">
+                <div id="profile-picture">
+                    <img src="profile-picture.png" alt="Profile Picture">
                 </div>
-                <button class="edit-profile-button">Edit Profile</button>
+                <a id="edit-profile-button" href="edit-profile.html">Edit Profile</a>
             </div>
 
-            <div class="profile-right">
-                <div class="user-info">
-                    <h2>Username</h2>
-                    <div class="username-info">peteranteater</div>
-                    <h2>Pronouns</h2>
-                    <div class="pronouns-info">they/them</div>
-                    <h2>About</h2>
-                    <div class="username-info">I'm the mascot for UC Irvine :D</div>
+            <div id="profile-right">
+                <div id="user-info">
+                    <h2 class="info-category">Username</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="username">peteranteater</p>
+                    </div>
+
+                    <h2 class="info-category">Pronouns</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="pronouns">they/them</p>
+                    </div>
+
+                    <h2 class="info-category">About</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum velit sed dui rutrum, egestas consequat magna pharetra. Pellentesque vulputate ipsum iaculis, aliquet arcu sed, pellentesque risus. Suspendisse vestibulum sollicitudin nulla metus.</p>
+                    </div>
                 </div>
             </div>
         </div>
