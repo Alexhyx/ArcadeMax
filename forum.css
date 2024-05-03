@@ -20,30 +20,60 @@
     font-size: 30px;
 }
 
-
+/* START OF FORUM MAIN*/
 .forumMain{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .forumMain > #posts {
     width: 66%;
     text-align: center;
+    height: 100%;
     
     
 
     
 }
-
 .forumMain > #posts > div{
     width: 100%;
     border-top: 1px solid #845698ff;
     text-align: justify;
-    overflow-wrap: break-word;
     margin:0 auto;
     
+    
+}
+.forumMain > #posts > div > p{
+    max-height: 3.35em;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.forumMain > #posts > div > h3 {
+    font-size: 90%;
+}
+
+
+/*START OF FORUM POST*/
+
+.forumPost>form{
+    display: flex;
+    flex-direction: column;
+    
+}
+#postMessage {
+    height: 100px;
+    width: 100%;
+    max-height: 30vh;
+    box-sizing: border-box;
+    resize: none;
+}
+
+label{
+    text-align: left;
 }
 
 body {
