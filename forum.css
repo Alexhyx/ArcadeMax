@@ -20,6 +20,11 @@
     font-size: 30px;
 }
 
+/*START OF FORUM MENU*/
+.forumMenu > p{
+    font-size: 60%;
+}
+
 /* START OF FORUM MAIN*/
 .forumMain{
     display: flex;
@@ -47,13 +52,14 @@
     
 }
 .forumMain > #posts > div > p{
+    font-size: 77%;
     max-height: 3.35em;
     overflow-wrap: break-word;
     overflow: hidden;
 }
 
 .forumMain > #posts > div > h3 {
-    font-size: 90%;
+    font-size: 85%;
 }
 
 
@@ -81,6 +87,10 @@ body {
     margin: 0px; /*without this there is whitespace on sides that looks bad*/
     margin-top: -1.5%; /*Otherwise there is top whitespace*/
     }
+
+h2 {
+    font-size:100%;
+}
 
 header{
     width: 100%;

@@ -2,7 +2,7 @@
 
 let posts =
 [
-    {title: "Sample Post", message_author: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, ligula ut fermentum aliquam, urna ipsum lacinia nulla, vel aliquam odio felis in leo. Duis in elit ac erat convallis efficitur.", "Anon"]}
+    {title: "Sample Post", message_author: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, ligula ut fermentum aliquam, urna ipsum lacinia nulla, vel aliquam odio felis in leo. Duis in elit ac erat convallis efficitur.", "Anon"], likes: 0}
 ]
 
 const postsOnPage = 3;
@@ -24,7 +24,8 @@ function displayPosts() {
         postElement.innerHTML =
             `<h3>${post.title}</h3>
             <p>${post.message_author[0]}</p>
-            <p style = "font-size: 50%;" >By: ${post.message_author[1]}</p>`;
+            <p style = "font-size: 50%;" >By: ${post.message_author[1]}</p>
+            <button class="like-count" onclick="likePost(${startIndex + posts.indexOf(post)})">Like ${post.likes}</button>`;
         postsContainer.appendChild(postElement);
     } );
 
@@ -38,13 +39,21 @@ function createNewPost() {
     const user = "Anon";
 
     //console.log(postTitle, postMessage)
-    posts.unshift({title:postTitle, message_author:[postMessage,user]})
+    posts.unshift({title:postTitle, message_author:[postMessage,user], likes:0})
     
     displayPosts();
     
     document.getElementById("title").value = "";
     document.getElementById("postMessage").value = "";
     return false;
+}
+
+
+
+function likePost(index) {
+    posts[index].likes = posts[index].likes+1;
+
+    displayPosts();
 }
 
 displayPosts();
