@@ -1,12 +1,12 @@
 body {
-    background-color: #f6f3ffff;
+    background-color: #f6f3ffff; /* Light background color */
     margin: 0px;
     font-family: Arial, sans-serif; /* Ensuring font consistency */
 }
 
 header {
     width: 100%;
-    background-color: #170a60ff;
+    background-color: #170a60ff; /* Deep blue background */
 }
 
 #above-navbar {
@@ -20,7 +20,7 @@ header {
 }
 
 nav {
-    background-color: #845698ff;
+    background-color: #845698ff; /* Lighter purple background for nav bar */
 }
 
 ul {
@@ -44,49 +44,31 @@ li a {
 }
 
 li a:hover {
-    background-color: #c9a6d8ff;
+    background-color: #c9a6d8ff; /* Lighter purple for hover effect */
 }
 
-.auth-form {
-    width: 300px;
-    margin: 50px auto;
+.content-section {
+    width: 80%;
+    margin: 20px auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white; /* White background for the content area */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
 
-.form-group label {
-    margin-bottom: 5px;
+.notification-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-.form-group input[type="text"],
-.form-group input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.notification-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Light gray border */
+    background-color: #f6f3ffff; /* Light background for each item */
 }
 
-.form-actions {
-    text-align: right;
-}
-
-button {
-    padding: 8px 16px;
-    margin-left: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: #845698ff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #c9a6d8ff;
+.notification-list li:last-child {
+    border-bottom: none;
 }
 
 footer {
@@ -94,5 +76,5 @@ footer {
     padding: 20px 0;
     font-size: 0.75em;
     color: #666;
-    background-color: #f6f3ffff;
+    background-color: #f6f3ffff; /* Consistent footer background */
 }
