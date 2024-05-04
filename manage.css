@@ -52,5 +52,8 @@ li a:hover {
 
   h3 {
     color: #170a60ff;
-  }
-    
+}
+
+#push-announcement {
+    visibility : hidden;
+}

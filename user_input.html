@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcadeMax</title>
+    <!-- You can link your CSS file here -->
+    <link rel="stylesheet" href="user_input.css">
+</head>
+
+<body>
+
+    <!-- Menu Bar-->>
+    <header>
+        <div id = "above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+            </ul>
+
+        </nav>
+    </header>
+
+    <div id = "suggestion-box">
+        <h3 style = "color:#170a60ff">Offer Suggestion</h3>
+
+        <form>
+            <label for="game">Game: </label>
+            <!--Use select here for drop-down menu-->
+            <select name="games" id="game">
+                <option value="pump">Pump It Up</option>
+
+
+                <option value="ddr">Dance Dance Revolution</option>
+            </select>
+            <br>
+            <label for="arcade">Arcade: </label>
+            <select name="arcades" id="arcade">
+                <option value="round1-santa_ana">Round1 - Santa Ana</option>
+                <option value="round1-lake_forest">Round1 - Lake Forest</option>
+            </select>
+            <br><br>
+            <label for="change">What Changed? </label><br>
+            <input type="radio" name="change" value="service">game out of service<br>
+            <input type="radio" name="change" value="not_there">game no longer there<br>
+            <input type="radio" name="change" value="update">game model updated<br>
+            <input type="radio" id = "other" onclick="displayOtherText();" name = "change" value="other"> other: <br>
+                <div id="ifOther"><input type="text" id="other_game_suggestion"></div>
+            <br><br>
+            <input type="submit" value = "Submit">
+        </form>
+    </div>
+
+<script src="user_input.js"></script>
+</body>
+
