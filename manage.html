@@ -28,9 +28,16 @@
     <button type = "button" id = "push" onclick="displayAnnouncement()"><h3>Push Announcement</h3></button>
     <div id ="push-announcement">
         <label for = "announcement">Write announcement to push here: </label>
-        <input type="text" id = "announcement">
+        <input type="text" id = "announcement"><br>
+        <input type="submit" id = "announcement-submit" value="Submit" onclick="submitAnnouncement()">
     </div>
     <br>
-    <button type = "button" id = "push" onclick="displayBan()"><h3>Ban User</h3></button>
+    <button type = "button" id = "ban" onclick="displayBan()"><h3>Ban User</h3></button>
+    <div id = "ban-user">
+        <label for ="banned">Ban User: </label>
+        <input type="text" id = "banned"><br>
+        <input type="submit" id = "ban-submit" value="Submit" onclick="submitBan()">
+    </div>
+
     <script src = "manage.js"></script>
 </body>

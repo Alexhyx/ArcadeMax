@@ -1,6 +1,5 @@
 function displayOtherText()
 {
-    console.log("Made it here")
     if (document.getElementById("other").checked){
         document.getElementById("ifOther").style.visibility = "visible";
     }
