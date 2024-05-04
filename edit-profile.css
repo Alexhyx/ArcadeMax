@@ -1,0 +1,25 @@
+.upload-image {
+    background-color: #845698ff;
+    color: #f6f3ffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.textbox-input {
+    background-color: #F6F3FF;
+    border: none;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-right: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.textbox-input:focus {
+    outline: none;
+}
+
+.changeButtons{
+    margin-top: 20px; /* Adjust margin as needed */
+}
