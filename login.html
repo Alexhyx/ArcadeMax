@@ -24,7 +24,7 @@
 
     <main>
         <section class="auth-form">
-            <form action="#" method="POST"> <!-- Update action to your server endpoint -->
+            <form action="profile.html" method="POST"> <!-- Update action to your server endpoint -->
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -33,13 +33,15 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="form-actions">
+                <div class="form-actions"> 
                     <button type="submit" id="loginBtn">Login</button>
                     <button type="reset" id="resetBtn">Reset</button>
                 </div>
             </form>
         </section>
     </main>
+
+    <script src="redirect-functions.js"></script>
 
     <footer>
         <p>&copy; ArcadeMax</p>

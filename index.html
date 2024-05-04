@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArcadeMax</title>
     <!-- You can link your CSS file here -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header>
@@ -14,28 +14,39 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
-                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div id = "news">
-            <h3>News</h3>
-            <ul>
-                <li>The newest in DDR</li>
-                <li>Trending Posts</li>
-                <li>Best Locations</li>
-            </ul>
-        </div>
-        <br>
-        <div id = "announcements">
-            <h3>Announcements</h3>
-            <!--Through javascript announcements pushsed by manage should be added-->>    
+        <div class = "grid-container">
+            <div class = "news">
+                <h3>News</h3>
+                
+                <p>The newest in DDR</p>
+                <img src = "ddr.png" width="400" height="200">
+
+                <p>Trending Posts</p>
+                <img src = "trendingPost.png" width="400" height="200">
+                
+                <p>Best Locations</p>
+                <img src = "boomers.png" width="300" height="160">
+                <p>Boomers Irvine</p>
+                    
+                
+            </div>
+            <br>
+            <div class = "announcements">
+                <h3>Announcements</h3>
+                <img src = "piuplayer.png" width="650" height="300">
+                <h4>THIS GUY GOES INSANE!!! Watch Stream Next Tuesday</h4>
+                <!--Through javascript announcements pushsed by manage should be added-->>    
+            </div>
         </div>
     </main>
 
@@ -43,7 +54,7 @@
         <p>&copy; ArcadeMax</p>
     </footer>
 
-    <!-- You can link your JavaScript file here -->
+   
     <!--<script src="script.js"></script>-->
 </body>
 </html>

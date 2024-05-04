@@ -1,3 +1,20 @@
+.homeNews { grid-area: menu; }
+.homeAnnouncements{ grid-area: right; }
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'menu menu right right'
+    'menu menu right right';
+    grid-template-rows: 80%;
+    grid-template-columns: 30% 30%;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+
 body {
     background-color: #f6f3ffff;
     margin: 0px;
@@ -105,4 +122,6 @@ footer {
     background-color: #f6f3ffff;
 }
 
-
+h4 {
+    font-size: medium;
+}

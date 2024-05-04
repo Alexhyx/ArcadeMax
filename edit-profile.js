@@ -25,17 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var saveButton = document.getElementById("saveButton");
 
     saveButton.addEventListener("click", function() {
-        // Get the updated values from the input fields
         var newUsername = document.getElementById("username-box").value;
         var newPronouns = document.getElementById("pronouns-box").value;
         var newAbout = document.getElementById("about-box").value;
 
-        // Save the updated values to localStorage
         localStorage.setItem("username", newUsername);
         localStorage.setItem("pronouns", newPronouns);
         localStorage.setItem("about", newAbout);
 
-        // Redirect to profile page
         window.location.href = "profile.html";
     });
 });

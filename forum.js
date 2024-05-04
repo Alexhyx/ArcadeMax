@@ -26,15 +26,15 @@ function displayPosts() {
     const allPosts = posts.slice(startIndex, endIndex);
 
     allPosts.forEach(post => {
-        const postElement = document.createElement("div");
-        postElement.innerHTML =
+        const element = document.createElement("div");
+        element.innerHTML =
             `<h3>${post.title}</h3>
             <p>${post.message_author[0]}</p>
             <p style = "font-size: 50%;" >By: ${post.user}</p>
             <button class="like-count" onclick="likePost(${startIndex + posts.indexOf(post)})">Like ${post.likes}</button>
             <button class="like-count" onclick="displaySinglePost(${startIndex + posts.indexOf(post)})">View Post</button>
             <button class="like-count" onclick="displaySinglePost(${startIndex + posts.indexOf(post)})">Comment</button>`;
-        postsHTML.appendChild(postElement);
+        postsHTML.appendChild(element);
     } );
 
    
@@ -43,16 +43,16 @@ function displayPosts() {
 function createNewPost() {
 
     const postTitle = document.getElementById("title").value;
-    const postMessage = document.getElementById("postMessage").value;
+    const message = document.getElementById("Message").value;
     const user = "Anon";
 
     //console.log(postTitle, postMessage)
-    posts.unshift({title:postTitle, message_author:[postMessage,user], likes:0, comments:[], user:"Anon"})
+    posts.unshift({title:postTitle, message_author:[message], likes:0, comments:[], user:"Anon"})
     
     displayPosts();
     
     document.getElementById("title").value = "";
-    document.getElementById("postMessage").value = "";
+    document.getElementById("Message").value = "";
     return false;
 }
 
@@ -76,8 +76,8 @@ function displaySinglePost(index){
 
 
     
-    const postElement = document.createElement("div");
-    postElement.innerHTML =`
+    const element= document.createElement("div");
+    element.innerHTML =`
         <button class = "backButton" onclick = "back()">Go Back</button>
         <div id = "singlePost">
         <h3>${post.title}</h3>
@@ -86,10 +86,10 @@ function displaySinglePost(index){
         <button class="like-count" onclick="likePost(${index})">Like ${post.likes}</button>
         </div>
         <div id = "personalComment">
-        <textarea id="CommentTextArea" name="postMessage"></textarea><br><br>
+        <textarea id="CommentTextArea"></textarea><br><br>
         <button class = "commentButton" onclick = "commentPost(${index})">Comment</button>
         </div>`;
-    postsHTML.appendChild(postElement);
+    postsHTML.appendChild(element);
 
     post.comments.forEach(comment => {
         const postComment = document.createElement("div");

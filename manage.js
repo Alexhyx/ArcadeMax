@@ -10,6 +10,7 @@ function displayAnnouncement(){
 }
 
 function displayBan(){
+<<<<<<< Updated upstream
     if(document.getElementById("ban-user").style.visibility == "visible")
         {
             document.getElementById("ban-user").style.visibility ="hidden";
@@ -27,4 +28,13 @@ function submitAnnouncement(){
 function submitBan(){
     let ban = document.getElementById("banned").value;
     document.getElementById("banned").value = "";
+=======
+    if(document.getElementById("banned").style.visibility == "visible")
+        {
+            document.getElementById("banned").style.visibility ="hidden";
+        }
+        else{
+            document.getElementById("banned").style.visibility = "visible";
+        }
+>>>>>>> Stashed changes
 }
