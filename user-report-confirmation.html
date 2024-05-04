@@ -5,6 +5,7 @@
     <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
     <title>Report Issue</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-report-style.css">
 </head>
 <body>
     <header>
@@ -21,30 +22,33 @@
             </ul>
         </nav>
         <div class="auth-buttons">
-            <button id="profileBtn">Profile</button>
+            <button id="profileBtn" onclick="redirectToProfile()">Profile</button>
         </div>
     </header>
-
     <main>
-        <div class="user-input-area">
-            <form class="issue-form">
-                <p>Type of Issue</p>
-                <input type="radio" id="user"> 
-                <label for="user">Inappropriate Content / Behavior from Other Users</label><br>
-                <input type="radio" id="website">
-                <label for="website">Website Issue</label><br>
-                
-                <p>Please enter the link to the issue</p>
-                <textarea class="link-textbox""></textarea>
+        <h2 id="report-title">THANK YOU FOR YOUR REPORT</h2>
+        <div class="confirmation-area">
+            <p style="color:#204271">We will take a look over your report.</p>
 
-                <p>Please describe the issue</p>
-                <textarea class="description-textbox""></textarea><br>
-
-                <a href="#"> <!--Link to a confirmation page later-->
-                    <input type="submit" value="Submit">
-                </a>
-            </form>
+            <div>
+                <button class="report-button" onclick="redirectToHome()">Go Back to Home</button>
+                <button class="report-button" onclick="redirectToReport()">Submit another Report</button>
+            </div>
         </div>
     </main>
+
+    <script>
+        function redirectToProfile() {
+            window.location.href = 'profile.html';
+        }
+
+        function redirectToHome() {
+            window.location.href = 'index.html';
+        }
+
+        function redirectToReport() {
+            window.location.href = 'user-report.html';
+        }
+    </script>
 </body>
 </html>
