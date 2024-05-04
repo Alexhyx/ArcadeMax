@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcadeMax</title>
+    <!-- You can link your CSS file here -->
+    <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+    <header>
+        <div id = "above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+                <!--This should be hidden if the user isn't an admin (should be checked in their profile)-->>
+                <li><a href='#'>Manage</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <button type = "button" id = "push" onclick="displayAnnouncement()"><h3>Push Announcement</h3></button>
+    <div id ="push-announcement">
+        <label for = "announcement">Write announcement to push here: </label>
+        <input type="text" id = "announcement">
+    </div>
+    <script src = "manage.js"></script>
+</body>

@@ -1,0 +1,61 @@
+body {
+    background-color: #f6f3ffff;
+    margin: 0px; /*without this there is whitespace on sides that looks bad*/
+    margin-top: -1.5%; /*Otherwise there is top whitespace*/
+    }
+
+header{
+    width: 100%;
+    background-color: #170a60ff;
+}
+
+#above-navbar {
+    background-color: #170a60ff;
+    height:20%;
+    }
+
+nav {
+     background-color: #845698ff;
+     text-align:center;
+     width: 100%;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/*This is the default for the li (list) for inside the nav-bar, if needed to change for spefic reason create in-doc style changes*/ 
+li {
+    display:inline-block;
+    border-right: 1px solid #f6f3ffff; /*separator*/
+  }
+
+li:last-child{
+    border-right: none; /*no need for last separator*/
+}
+
+li a {
+    display: block;
+    color: #f6f3ffff;
+    text-align: center;
+    padding: 7% 125px; /*padding: top, right, bottom, left (the last two ommitted so bottom = top and left = right)*/
+    text-decoration: none;
+  }
+  
+li a:hover {
+    background-color: #c9a6d8ff;
+  }
+
+
+ /*Now values for the user_input*/
+ #suggestion-box {
+    text-align: center;
+ } 
+
+ #ifOther{
+    visibility:hidden;
+ }
+
