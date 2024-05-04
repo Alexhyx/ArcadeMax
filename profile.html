@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <div id="above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="profileBtn">Profile</button>
+        </div>
+    </header>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the updated values from localStorage
+            var newUsername = localStorage.getItem("username");
+            var newPronouns = localStorage.getItem("pronouns");
+            var newAbout = localStorage.getItem("about");
+        
+            // Update the content on profile page
+            var usernameElement = document.getElementById("username");
+            var pronounsElement = document.getElementById("pronouns");
+            var aboutElement = document.getElementById("about");
+        
+            if (newUsername) {
+                usernameElement.textContent = newUsername;
+            }
+        
+            if (newPronouns) {
+                pronounsElement.textContent = newPronouns;
+            }
+        
+            if (newAbout) {
+                aboutElement.textContent = newAbout;
+            }
+        });
+    </script>
+
+    <main class="container">
+        <div class="profile">
+            <div class="profile-left">
+                <div class="profile-picture-section">
+                    <img src="profile-picture.png" alt="Profile Picture">
+                </div>
+                <a id="edit-profile-button" href="edit-profile.html">Edit Profile</a>
+            </div>
+
+            <div class="profile-right">
+                <div id="user-info">
+                    <h2 class="info-category" id="username-heading">Username</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="username">peteranteater</p>
+                    </div>
+
+                    <h2 class="info-category" id="pronouns-heading">Pronouns</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="pronouns">N/A</p>
+                    </div>
+
+                    <h2 class="info-category" id="about-heading">About</h2>
+                    <div class="info-box">
+                        <p class="text-box" id="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum velit sed dui rutrum, egestas consequat magna pharetra. Pellentesque vulputate ipsum iaculis, aliquet arcu sed, pellentesque risus. Suspendisse vestibulum sollicitudin nulla metus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="profile.js"></script>
+</body>
+</html>

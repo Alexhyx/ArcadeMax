@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Report Issue</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-report.css">
+</head>
+<body>
+    <header>
+        <div id = "above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="profileBtn" onclick="redirectToProfile()">Profile</button>
+        </div>
+    </header>
+
+    <main>
+        <h2 id="report-title">REPORT</h2>
+        <div class="report-area">
+            <form class="issue-form" action="user-report-confirmation.html" method="post">
+                <h3 class="form-heading">Type of Issue</h3>
+                <input type="radio" id="user" name="issueType"> 
+                <label for="user">Inappropriate Content / Behavior from Other Users</label><br>
+                <input type="radio" id="website" name="issueType">
+                <label for="website">Website Issue</label><br>
+                
+                <h3 class="form-heading">Please enter the link to the issue</h3>
+                <textarea class="form-textbox" rows="1" cols="60"></textarea>
+
+                <h3 class="form-heading">Please describe the issue</h3>
+                <textarea class="form-textbox" rows="5" cols="60"></textarea><br>
+
+                <h3></h3>
+                
+                <input type="submit" value="Submit" class="report-button">
+            </form>
+        </div>
+    </main>
+
+    <script src="redirect-functions.js"></script>
+
+</body>
+</html>

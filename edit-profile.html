@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="edit-profile.css">
+</head>
+<body>
+    <header>
+        <div id="above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="profileBtn" onclick="redirectToProfile()">Profile</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="profile">
+            <div class="profile-left">
+                <div class="profile-picture-section">
+                    <img id="profile-image" src="profile-picture.png" alt="Profile Picture">
+                </div>
+                <input type="file" id="image-input" style="display: none;" accept="image/*">
+                <button class="upload-image" type="button" onclick="document.getElementById('image-input').click();">Choose New Image</button>
+            </div>
+
+            <div class="profile-right">
+                <div>
+                    <h2 class="info-category" id="username-heading">Username</h2>
+                    <div class="info-box">
+                        <textarea class="textbox-input" id="username-box" type="text" rows="1" cols="60" placeholder="peterantear"></textarea>
+                    </div>
+
+                    <h2 class="info-category" id="pronouns-heading">Pronouns</h2>
+                    <div class="info-box">
+                        <textarea class="textbox-input" id="pronouns-box" type="text" rows="1" cols="60" placeholder="they/them"></textarea>
+                    </div>
+
+                    <h2 class="info-category" id="about-heading">About</h2>
+                    <div class="info-box">
+                        <textarea class="textbox-input" id="about-box" type="text" rows="5" cols="60" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="changeButtons">
+                <button id="saveButton">Save Changes</button>
+                <button id="discardButton">Discard Changes</button>
+            </div>
+        </div>
+        
+        
+    </main>
+
+    <script src="edit-profile.js"></script>
+    <script src="redirect-functions.js"></script>
+</body>
+</html>

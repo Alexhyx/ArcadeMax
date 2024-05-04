@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Report Issue</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-report.css">
+</head>
+<body>
+    <header>
+        <div id = "above-navbar">
+            <h1 style="color:#f6f3ffff">ArcadeMax</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Forum</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Search</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">Settings</a></li> <!--Empty Can Link Later-->
+                <li><a href="#">About</a></li> <!--Empty Can Link Later-->
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="profileBtn" onclick="redirectToProfile()">Profile</button>
+        </div>
+    </header>
+    <main>
+        <h2 id="report-title">THANK YOU FOR YOUR REPORT</h2>
+        <div class="confirmation-area">
+            <p style="color:#204271">We will take a look over your report.</p>
+
+            <div>
+                <button class="report-button" onclick="redirectToHome()">Go Back to Home</button>
+                <button class="report-button" onclick="redirectToReport()">Submit another Report</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="redirect-functions.js"></script>
+</body>
+</html>
