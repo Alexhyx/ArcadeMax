@@ -35,7 +35,7 @@
 }
 
 .forumMain > #posts {
-    width: 66%;
+    max-width: 66%;
     text-align: center;
     height: 100%;
     
@@ -48,14 +48,16 @@
     border-top: 1px solid #845698ff;
     text-align: justify;
     margin:0 auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
     
     
 }
-.forumMain > #posts > div > p{
+.forumMain > #posts > p{
     font-size: 77%;
     max-height: 3.35em;
-    overflow-wrap: break-word;
-    overflow: hidden;
+    max-width: 90%;
+    
 }
 
 .forumMain > #posts > div > h3 {
@@ -163,6 +165,19 @@ li a:hover {
 button:hover {
     background-color: #c9a6d8ff; /* Hover effect matching your link hover effect */
 }
+
+/*comment area*/
+#personalComment {
+    display: flex;
+    align-items: center;
+}
+
+#CommentTextArea {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Adjust as needed */
+}
+
+
 
 footer{
     text-align: center;
