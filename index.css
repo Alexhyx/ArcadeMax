@@ -1,3 +1,5 @@
+/*This is not functional*/
+
 .homeNews { grid-area: menu; }
 .homeAnnouncements{ grid-area: right; }
 
