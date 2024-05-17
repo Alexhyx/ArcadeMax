@@ -34,7 +34,7 @@ function Map() {
 
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyCJ0hN3jO6eKWFRCjYDzR78kh6TDweCXXE" >
+        <LoadScript googleMapsApiKey="" >
 
     
             <GoogleMap
