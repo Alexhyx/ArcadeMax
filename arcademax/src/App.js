@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/HEADERR/NavBar';
+import NavBar from './components/Header/NavBar';
+import PostBoard from './components/Forum/PostBoard/PostBoard';
+import Map from './components/Search/Map';
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <header className="App-header">
         <NavBar/>
       </header>
+      <PostBoard/>
+      <Map/>
     </div>
         
   );
