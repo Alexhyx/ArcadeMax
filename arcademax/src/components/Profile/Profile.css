@@ -91,15 +91,20 @@
     color: #170A60;
 }
 
-.info-box {
+.info-box .text-box {
     background-color: #F6F3FF;
     border-radius: 20px;
     padding-left: 30px;
     padding-right: 30px;
     overflow: hidden;
-    margin: 20px auto;
+    width: 100%;
 }
 
 .text-box {
-    color: #204271;
+    border: none;
+
+}
+
+.text-box:focus {
+    outline: none;
 }
