@@ -1,0 +1,19 @@
+/* We need to change to actual header color, make taller */
+header {
+    background-color: #845698ff;
+}
+
+
+.auth-buttons {
+    text-align: right
+}
+
+#loginBtn {
+    font-size: 16px;
+    color: white;
+    background-color: #845698ff; /* Similar to your nav background for consistency */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
