@@ -1,16 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const LoginButton = () => {
-
-
-    // When you click by default it'll take you to login, with the option to sign up
-    // Idk how to link in react
-    return(
+    return (
         <div className="auth-buttons">
-            <button id="loginBtn">Login/Sign Up</button>
+            <Link to="/login">
+                <button id="loginBtn">Login/Sign Up</button>
+            </Link>
         </div>
     );
 }
-
 
 export default LoginButton;
