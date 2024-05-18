@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './Profile.css';
 import ProfilePicture from './Picture';
-import ProfileInformation from './Information';
-import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval'
+import ProfileInformation from './RegularInfo';
+import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 
-const Profile = ({ user }) => {
-    const [username, setUsername] = useState('peter');
-    const [pronouns, setPronouns] = useState('she/her');
-    const [about, setAbout] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-    const [profilePicture, setProfilePicture] = useState('profile-picture.png');
+const Profile = () => {
+    const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
+    const [username, setUsername] = useState('Round1');
+    const [pronouns, setPronouns] = useState('');
+    const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
+    const [profilePicture, setProfilePicture] = useState('round1-pfp.png');
     const [isEditing, setIsEditing] = useState(false);
     const [originalValues, setOriginalValues] = useState({ username, pronouns, about, profilePicture });
 
@@ -34,7 +35,7 @@ const Profile = ({ user }) => {
         setIsEditing(false);
     };
 
-    const handleInputChange = (event) => {
+    const handleRegularInputChange = (event) => {
         const { name, value } = event.target;
         if (name === 'username') {
             setUsername(value);
@@ -44,6 +45,15 @@ const Profile = ({ user }) => {
             setAbout(value);
         }
     };
+
+    const handleArcOwnerInputChange = (event) => {
+        const { name, value } = event.target;
+        if (name === 'username') {
+            setUsername(value);
+        } else if (name === 'about') {
+            setAbout(value);
+        }
+    }
 
     const handlePictureChange = (event) => {
         const file = event.target.files[0];
@@ -67,16 +77,30 @@ const Profile = ({ user }) => {
                 handleEditClick={handleEditClick}
                 handleCancelClick={handleCancelClick}
                 handlePictureChange={handlePictureChange}
-                handleSaveClick={handleSaveClick}/>
-
-            <ProfileInformation
-                isEditing={isEditing}
-                username={username}
-                pronouns={pronouns}
-                about={about}
-                handleInputChange={handleInputChange}
+                handleSaveClick={handleSaveClick}
             />
-            <ArcOwnInfoRetrieval/>
+            {(userType === 'regular' || userType === 'admin') && (
+                <>
+                    <ProfileInformation
+                        isEditing={isEditing}
+                        username={username}
+                        pronouns={pronouns}
+                        about={about}
+                        handleRegularInputChange={handleRegularInputChange}
+                    />
+                </>
+                
+            )}
+            {userType === 'arcadeOwner' && (
+                <>
+                    <OwnerInformation
+                        isEditing={isEditing}
+                        username={username}
+                        about={about}
+                        handleArcOwnerInputChange={handleArcOwnerInputChange}
+                    />
+                </>
+            )}
         </div>
         
     );

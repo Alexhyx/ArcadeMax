@@ -2,7 +2,6 @@ import React from 'react';
 import './Profile.css';
 
 const EditButtons = ({isEditing, handlePictureChange, handleEditClick, handleCancelClick, handleSaveClick }) => (
-    
     <div>
         {isEditing ? (
             <div>
