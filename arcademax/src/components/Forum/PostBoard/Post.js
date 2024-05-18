@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import './Post.css'
+import './Post.css' 
 
 const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) => {
     

@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleMap, LoadScript}  from '@react-google-maps/api';
 import { useState } from 'react';
 
+
 const containerStyle = {
   width: '400px',
   height: '400px'
@@ -13,7 +14,7 @@ const defaultCenter = {
 };
 
 function Map() {
-
+    
     const [center, setMapCenter] = useState(defaultCenter);
     const [location, setlocation] = useState('');
 
@@ -27,14 +28,14 @@ function Map() {
           if (status === 'OK') {
             setMapCenter(results[0].geometry.location);
           } else {
-            alert('Geocode was not successful for the following reason: ' + status);
+            alert('Geocode was not successful: ' + status);
           }
         });
       };
 
 
     return (
-        <LoadScript googleMapsApiKey="" >
+        <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q" >
 
     
             <GoogleMap

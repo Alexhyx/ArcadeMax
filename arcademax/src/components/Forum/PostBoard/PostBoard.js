@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 import { useState } from "react";
 import PostCreator from "./PostCreator";
-import './PostBoard.css';
+import './PostBoard.css'; 
 
 
 const PostBoard = () => {
