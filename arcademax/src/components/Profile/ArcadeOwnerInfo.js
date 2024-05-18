@@ -98,7 +98,7 @@ const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChang
                 </div>
             </div>
                 <div>
-                    <h2 className="info-category" id="arcade-heading">About</h2>
+                    <h2 className="info-category" id="arcade-heading">Arcade Locations</h2>
                     <div className='info-box' id='arcade-lists'>
                         {arcades.map(arcade => (
                             <div key={arcade.id} className="arcade-item">
@@ -126,8 +126,8 @@ const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChang
                                     </div>
                                 ) : (
                                     <div>
-                                        <p>Name: {arcade.name}</p>
-                                        <p>Address: {arcade.address}</p>
+                                        <p><b>Name:</b> {arcade.name}</p>
+                                        <p><b>Address:</b> {arcade.address}</p>
                                         <div>
                                             <h4>Games:</h4>
                                             {arcade.games.map((game, index) => (

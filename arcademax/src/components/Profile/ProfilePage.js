@@ -3,14 +3,13 @@ import './Profile.css';
 import ProfilePicture from './Picture';
 import ProfileInformation from './RegularInfo';
 import OwnerInformation from './ArcadeOwnerInfo';
-import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval'
 import EditButtons from './EditButtons';
 
 const Profile = () => {
     const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
-    const [username, setUsername] = useState('peter');
+    const [username, setUsername] = useState('Round1');
     const [pronouns, setPronouns] = useState('');
-    const [about, setAbout] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+    const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
     const [profilePicture, setProfilePicture] = useState('round1-pfp.png');
     const [isEditing, setIsEditing] = useState(false);
     const [originalValues, setOriginalValues] = useState({ username, pronouns, about, profilePicture });
@@ -100,8 +99,6 @@ const Profile = () => {
                         about={about}
                         handleArcOwnerInputChange={handleArcOwnerInputChange}
                     />
-                    {/* <ArcadeUserInputResponse/>
-                    <ArcOwnInfoRetrieval/> */}
                 </>
             )}
         </div>
