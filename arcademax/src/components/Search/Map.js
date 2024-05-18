@@ -49,7 +49,7 @@ function Map({location}) {
 
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q" >
+        <LoadScript googleMapsApiKey="" >
 
     
             <GoogleMap
