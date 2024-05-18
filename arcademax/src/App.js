@@ -4,6 +4,7 @@ import HeaderComp from './components/Header/HeaderComponent';
 import Profile from './components/Profile/ProfilePage'
 import ArcadeInputForm from './components/ArcadeInput/ArcadeInput';
 import ReportIssue from './components/UserReport/UserReport';
+import AboutPage from './components/About/About';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <HeaderComp/>
       <ArcadeInputForm/>
       <ReportIssue/>
+      <AboutPage/>
     </div>
         
   );
