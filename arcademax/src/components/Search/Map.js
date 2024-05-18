@@ -46,10 +46,11 @@ function Map({location}) {
           });
         }
     }, [location]);
-
+    /*AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q*/
 
     return (
         <LoadScript googleMapsApiKey="" >
+
 
     
             <GoogleMap
