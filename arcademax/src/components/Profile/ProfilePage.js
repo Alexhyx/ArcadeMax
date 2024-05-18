@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Profile.css';
 import ProfilePicture from './Picture';
 import ProfileInformation from './RegularInfo';
 import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 
-const Profile = () => {
+const Profile = ({}) => {
     const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
-    const [username, setUsername] = useState('Round1');
+    const loc = useLocation();
+    const [username, setUsername] = useState(localStorage.getItem("username"));
     const [pronouns, setPronouns] = useState('');
     const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
     const [profilePicture, setProfilePicture] = useState('round1-pfp.png');
