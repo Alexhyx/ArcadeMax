@@ -7,7 +7,7 @@ import NavBar from './components/Header/NavBar';
 import Profile from './components/Profile/ProfilePage';
 import Forum from './components/Forum/Forum';
 import AboutPage from './components/About/About';
-import LoginForm from './components/Header/LoginPage/LoginForm';
+import LoginForm from './components/LoginPage/LoginForm';
 
 
 function App() {

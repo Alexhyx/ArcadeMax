@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.css'; 
-import Profile from '../../Profile/ProfilePage';
+import Profile from '../Profile/ProfilePage';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
@@ -21,8 +21,9 @@ function LoginForm() {
         event.preventDefault();
         
         localStorage.setItem("username", username)
+        
         navigate('/ProfilePage', { state: { username: username } });
-        console.log('Login Submitted:', username, password);
+        
     };
 
     return (
