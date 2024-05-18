@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './Profile.css';
 import round1Data from './round1Data';
+import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval';
 
 const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChange }) => {
     const [arcades, setArcades] = useState(round1Data);
     const [editingArcadeId, setEditingArcadeId] = useState(null);
     const [editedArcade, setEditedArcade] = useState({});
+
+    const [newArcade, setNewArcade] = useState({ address: '', games: [] });
 
     const handleEditArcade = (id) => {
         setEditingArcadeId(id);
@@ -36,6 +39,26 @@ const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChang
         );
         setEditingArcadeId(null);
         setEditedArcade({});
+    };
+
+    const handleAddArcade = () => {
+        setArcades([...arcades, { ...newArcade, id: arcades.length + 1 }]);
+        setNewArcade({ name: '', address: '', games: [] });
+    };
+
+    const setArcadeAddress = (address) => {
+        setNewArcade(prevState => ({ ...prevState, address }));
+    };
+
+    const addGameToList = (game) => {
+        setNewArcade(prevState => ({
+            ...prevState,
+            games: [...prevState.games, game]
+        }));
+    };
+
+    const handleNewArcadeNameChange = (e) => {
+        setNewArcade(prevState => ({ ...prevState, name: e.target.value }));
     };
 
     return (
@@ -118,6 +141,22 @@ const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChang
                                 )}
                             </div>
                         ))}
+                        <div>
+                            <h2 className="info-category">Add New Arcade</h2>
+                            <div className='info-box'>
+                                <input
+                                    type="text"
+                                    placeholder="Arcade Name"
+                                    value={newArcade.name}
+                                    onChange={handleNewArcadeNameChange}
+                                />
+                                <ArcOwnInfoRetrieval
+                                    setArcadeAddress={setArcadeAddress}
+                                    addGameToList={addGameToList}
+                                />
+                                <button onClick={handleAddArcade}>Add Arcade</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>

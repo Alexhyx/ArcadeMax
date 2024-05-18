@@ -1,54 +1,44 @@
 import React, { useState } from 'react';
 
-
-const ArcOwnInfoRetrieval = () => {
-    const [ArcadeAdress, setArcadeAdress] = useState('');
-    const [ArcadeGames, setArcadeGames] = useState([]);
+const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList }) => {
+    const [ArcadeAddress, setArcadeAddressState] = useState('');
     const [specificGame, setSpecificGame] = useState('');
 
-    const submitAdress =(e)=>{
+    const submitAddress = (e) => {
         e.preventDefault();
-        //Calls the passed function that will be called outside of the object (see postboard's PostCreator object)
-        console.log("Here is the Address: ", ArcadeAdress);
-
+        setArcadeAddress(ArcadeAddress);
+        setArcadeAddressState('');
     };
-    
-    const addGameToList = (e) =>{
-        e.preventDefault();
-        setArcadeGames([...ArcadeGames, specificGame]);
-        
-        setSpecificGame('');
-        
-    }
 
-    
+    const addGame = (e) => {
+        e.preventDefault();
+        addGameToList(specificGame);
+        setSpecificGame('');
+    };
+
     return (
-        <div className = "ArcOwnInfo">
-            <form onSubmit={submitAdress}>
+        <div className="ArcOwnInfo">
+            <form onSubmit={submitAddress}>
                 <input
-                type = 'text'
-                value = {ArcadeAdress}
-                placeholder="Please Input Address like: [Street Number & Name], [City], [State], [Country], [Postal Code]"
-                onChange={(e)=>setArcadeAdress(e.target.value)}
+                    type='text'
+                    value={ArcadeAddress}
+                    placeholder="Please Input Address like: [Street Number & Name], [City], [State], [Country], [Postal Code]"
+                    onChange={(e) => setArcadeAddressState(e.target.value)}
                 />
                 <button type="submit">Set Address</button>
             </form>
 
-            <form onSubmit = {addGameToList}>
+            <form onSubmit={addGame}>
                 <input
-                type = 'text'
-                value = {specificGame}
-                placeholder="Please Input an Arcade Game to add to Game List"
-                onChange={(e)=>setSpecificGame(e.target.value)}
+                    type='text'
+                    value={specificGame}
+                    placeholder="Please Input an Arcade Game to add to Game List"
+                    onChange={(e) => setSpecificGame(e.target.value)}
                 />
                 <button type="submit">Add Game</button>
-                
             </form>
-
-            
         </div>
     );
-    
-}
- 
+};
+
 export default ArcOwnInfoRetrieval;
