@@ -1,0 +1,40 @@
+.report-area, .confirmation-area {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px; 
+    overflow: hidden;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    flex-direction: column;
+}
+
+.confirmation-area {
+    align-items: center;
+    justify-content: center;
+}
+
+#report-title, .form-heading {
+    color: #170A60;
+}
+
+#report-title {
+    text-align: center;
+}
+
+label, .form-textbox {
+    color: #204271
+}
+
+.report-button {
+    background-color: #845698ff;
+    color: #f6f3ffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.report-button:hover {
+    background-color: #c9a6d8ff;
+}
