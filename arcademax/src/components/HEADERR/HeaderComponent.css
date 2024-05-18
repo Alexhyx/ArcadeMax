@@ -17,3 +17,13 @@ header {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+#profileBtn {
+    visibility: hidden; /*Starts invisible */
+    font-size: 16px;
+    color: white;
+    background-color: #845698ff; /* Similar to your nav background for consistency */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
