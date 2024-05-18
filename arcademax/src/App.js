@@ -1,33 +1,42 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+
+import Search from './components/Search/search';
 import NavBar from './components/Header/NavBar';
-import PostBoard from './components/Forum/PostBoard/PostBoard';
-import Map from './components/Search/Map';
-import HeaderComp from './components/Header/HeaderComponent';
-import Profile from './components/Profile/ProfilePage'
-import { ArcadeInfoProvider } from './stubData/ArcadeInfoHandler';
-import GameLocationDropdowns from './components/Search/GameLocationDropdowns';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+  /*<header className="App-header">
         <NavBar/>
       </header>
       <PostBoard/>
 
-      <ArcadeInfoProvider>
-      <Map/>
-      <GameLocationDropdowns/>
-      </ArcadeInfoProvider>
+      <Search/>
       
       <HeaderComp/>
 
       <ArcadeInfoProvider>
       <Profile/>
       </ArcadeInfoProvider>
-    </div>
+    </div>*/
+
+  return (
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<div>Home Page Content</div>} />
+        <Route path="/search" element={<Search />} />
+        
+
+      </Routes>
+    </BrowserRouter>
+    
+
+      
         
   );
+  
 }
 
 export default App;

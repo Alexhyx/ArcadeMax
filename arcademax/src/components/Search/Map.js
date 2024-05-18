@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript}  from '@react-google-maps/api';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const containerStyle = {
@@ -13,10 +13,10 @@ const defaultCenter = {
   lng: 150.644
 };
 
-function Map() {
+function Map({location}) {
     
     const [center, setMapCenter] = useState(defaultCenter);
-    const [location, setlocation] = useState('');
+    /*const [location, setlocation] = useState('');
 
     const changeLocation = (event) => {
         setlocation(event.target.value);
@@ -31,7 +31,21 @@ function Map() {
             alert('Geocode was not successful: ' + status);
           }
         });
-      };
+      };*/
+      useEffect(() => {
+        if (location) {
+          const geocoder = new window.google.maps.Geocoder();
+          geocoder.geocode({ address: location }, (results, status) => {
+            if (status === 'OK') {
+              setMapCenter(results[0].geometry.location.toJSON());
+            } 
+
+            else {
+              alert('Geocode was not successful: ' + status);
+            }
+          });
+        }
+    }, [location]);
 
 
     return (
@@ -45,10 +59,6 @@ function Map() {
             </GoogleMap>
             
 
-            <div>
-                <input type="text" value={location} onChange={changeLocation} />
-                <button onClick={locationFinder}>Find Location</button>
-            </div>
         </LoadScript>
     )
 }
