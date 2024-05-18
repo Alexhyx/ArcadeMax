@@ -1,18 +1,21 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './NavBar.css';
+import LoginButton from './LoginButton';  // Ensure LoginButton is exported correctly from its file
 
 const NavBar = () => {
-    return(
+    return (
         <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="forum.html">Forum</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/forum">Forum</Link></li>
+                <li><Link to="/search">Search</Link></li>
+                <li><Link to="/settings">Settings</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><LoginButton /></li>  // Adding LoginButton to the navbar
+            </ul>
+        </nav>
     );
 }
- 
+
 export default NavBar;
