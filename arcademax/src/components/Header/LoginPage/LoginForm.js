@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginForm.css'; // Ensure you have a corresponding CSS file for styles
+import './LoginForm.css'; 
 
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState('');
@@ -15,8 +15,7 @@ function LoginForm({ onLogin }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here you would typically handle the login logic,
-        // such as making an API call to your backend server
+      
         if(onLogin) {
             onLogin(username, password);
         }
