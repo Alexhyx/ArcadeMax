@@ -19,7 +19,8 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-      
+        
+        localStorage.setItem("username", username)
         navigate('/ProfilePage', { state: { username: username } });
         console.log('Login Submitted:', username, password);
     };

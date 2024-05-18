@@ -9,7 +9,7 @@ import EditButtons from './EditButtons';
 const Profile = ({}) => {
     const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
     const loc = useLocation();
-    const [username, setUsername] = useState(loc.state?.username );
+    const [username, setUsername] = useState(localStorage.getItem("username"));
     const [pronouns, setPronouns] = useState('');
     const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
     const [profilePicture, setProfilePicture] = useState('round1-pfp.png');
