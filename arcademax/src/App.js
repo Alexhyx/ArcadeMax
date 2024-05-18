@@ -7,6 +7,7 @@ import NavBar from './components/Header/NavBar';
 import Profile from './components/Profile/ProfilePage';
 import Forum from './components/Forum/Forum';
 import AboutPage from './components/About/About';
+import LoginForm from './components/LoginPage/LoginForm';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path="/Forum" element={<Forum />} />
         <Route path="/ProfilePage" element={<Profile/>}/>
         <Route path="/About" element={<AboutPage/>}/>
-        
+        <Route path="/LoginForm" element={<LoginForm/>}/>
 
       </Routes>
     </BrowserRouter>
