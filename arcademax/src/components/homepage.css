@@ -1,46 +1,45 @@
 body {
-    background-color: #f6f3ffff;
+    background-color: #f6f3ffff; /* Light grey */
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
 header {
-    width: 100%;
-    background-color: #170a60ff;
-}
-
-#above-navbar {
-    background-color: #170a60ff;
-    height: 60px;
-    padding: 10px 20px;
+    background-color: #170a60ff; /* Deep blue */
     color: white;
-    display: flex;
-    align-items: center;
-    font-size: 1.5em;
-}
-
-nav {
-    background-color: #845698ff;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-li a {
-    display: block;
-    color: white;
+    padding: 20px 10px;
     text-align: center;
-    padding: 12px 16px;
-    text-decoration: none;
+    font-size: 24px;
 }
 
-li a:hover {
-    background-color: #c9a6d8ff;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #845698ff; /* Purple */
+    overflow: hidden;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    background-color: #c9a6d8ff; /* Lighter purple */
+}
+
+.main {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .welcome, .featured-games {
@@ -68,5 +67,5 @@ footer {
     padding: 20px 0;
     font-size: 0.75em;
     color: #666;
-    background-color: #f6f3ffff;
+    background-color: #f6f3ffff; /* Light grey */
 }
