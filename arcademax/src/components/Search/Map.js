@@ -31,6 +31,7 @@ function Map({location}) {
             alert('Geocode was not successful: ' + status);
           }
         });
+<<<<<<< Updated upstream
       };*/
       useEffect(() => {
         if (location) {
@@ -51,6 +52,13 @@ function Map({location}) {
     return (
         <LoadScript googleMapsApiKey="" >
 
+=======
+      };
+//AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q
+
+    return (
+        <LoadScript googleMapsApiKey="" >
+>>>>>>> Stashed changes
 
     
             <GoogleMap

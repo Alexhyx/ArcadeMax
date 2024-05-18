@@ -8,6 +8,7 @@ const NavBar = () => {
     return(
         <nav>
         <ul>
+<<<<<<< Updated upstream
             <li>
                 <Link to="/">Home</Link>
             </li>
@@ -25,6 +26,13 @@ const NavBar = () => {
             </li>
             
             
+=======
+            <li><a href="app.js">Home</a></li>
+            <li><a href="forum.js">Forum</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="Settings.js">Settings</a></li>
+            <li><a href="about.html">About</a></li>
+>>>>>>> Stashed changes
         </ul>
         </nav>
     );
