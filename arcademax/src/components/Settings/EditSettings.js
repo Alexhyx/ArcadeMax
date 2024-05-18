@@ -5,7 +5,7 @@ const editSettings = ({isEditing, handleSaveClick, handleCancelClick, handleEdit
     return (
     <div> {isEditing ? (
 
-        <div>
+        <div id="setting-buttons">
                 <button id="save-settings-button" onClick={handleSaveClick}>Save</button>
                 <button id="cancel-settings-button" onClick={handleCancelClick}>Cancel</button>
             </div>

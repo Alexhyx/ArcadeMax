@@ -1,6 +1,5 @@
 
 import React from './react'
-import HeaderComp from './components/Header/HeaderComponent';
 import editSettings from 'EditSettings.js'
 
 const Settings = () => {
@@ -28,11 +27,19 @@ const Settings = () => {
             }
     }
 
+    //Starting with header will change to clickable objects
     return (
         <div>
-            <HeaderComp/>
+            <div class = "list-area" id = "setting-side-bar">
+                <h3>Account</h3>
+                <h3>Appearance</h3>
+                <h3>Notification</h3>
+            </div>
             <editSettings
-            isEditing/>
+                isEditing={isEditing}
+                handleSaveClick={handleSaveClick}
+                handleCancelClick={handleCancelClick}
+                handleEditClick={handleEditClick}/>
             
         </div>
 
