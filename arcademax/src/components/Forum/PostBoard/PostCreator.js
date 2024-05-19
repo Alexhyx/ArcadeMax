@@ -16,12 +16,14 @@ const PostCreator =({createPost})=>{
     
     return (
         <form onSubmit={submitPost}>
+            <h2>Title</h2>
             <input
                 type = 'text'
                 value = {title}
                 onChange={(e)=>setTitle(e.target.value)}
             />
             <br></br>
+            <h2>Body</h2>
             <textarea
                 value = {content}
                 onChange = {(e)=>setContent(e.target.value)}
