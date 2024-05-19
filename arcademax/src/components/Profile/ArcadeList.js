@@ -3,12 +3,12 @@ import './Profile.css';
 import round1Data from './round1Data';
 import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval';
 
-const ArcadeListInfo=({isEditing,}) => {
+const ArcadeListInfo = ({ isEditing }) => {
     const [arcades, setArcades] = useState(round1Data);
     const [editingArcadeId, setEditingArcadeId] = useState(null);
     const [editedArcade, setEditedArcade] = useState({});
-
-    const [newArcade, setNewArcade] = useState({ address: '', games: [] });
+    const [newArcade, setNewArcade] = useState({ name: '', address: '', games: [] });
+    const [addressSubmitted, setAddressSubmitted] = useState(false);
 
     const handleEditArcade = (id) => {
         setEditingArcadeId(id);
@@ -44,10 +44,12 @@ const ArcadeListInfo=({isEditing,}) => {
     const handleAddArcade = () => {
         setArcades([...arcades, { ...newArcade, id: arcades.length + 1 }]);
         setNewArcade({ name: '', address: '', games: [] });
+        setAddressSubmitted(false);
     };
 
     const setArcadeAddress = (address) => {
         setNewArcade(prevState => ({ ...prevState, address }));
+        setAddressSubmitted(true);
     };
 
     const addGameToList = (game) => {
@@ -61,10 +63,10 @@ const ArcadeListInfo=({isEditing,}) => {
         setNewArcade(prevState => ({ ...prevState, name: e.target.value }));
     };
 
-    return(
+    return (
         <div>
             <h2 className="info-category" id="arcade-heading">Arcade Locations</h2>
-            <div className='info-box' id='arcade-lists'>
+            <div>
                 {arcades.map(arcade => (
                     <div key={arcade.id} className="arcade-item">
                         {editingArcadeId === arcade.id ? (
@@ -106,24 +108,28 @@ const ArcadeListInfo=({isEditing,}) => {
                         )}
                     </div>
                 ))}
-                {isEditing && (
-                    <div>
-                        <h2 className="info-category">Add New Arcade</h2>
-                        <div className='info-box'>
-                            <input
-                                type="text"
-                                placeholder="Arcade Name"
-                                value={newArcade.name}
-                                onChange={handleNewArcadeNameChange}
-                            />
-                            <ArcOwnInfoRetrieval
-                                setArcadeAddress={setArcadeAddress}
-                                addGameToList={addGameToList}
-                            />
-                            <button onClick={handleAddArcade}>Add Arcade</button>
+                    {isEditing && (
+                        <div>
+                            <h2 className="info-category">Add New Arcade</h2>
+                            <div>
+                                <p>Please Input Address like: [Street Number & Name], [City], [State], [Country], [Postal Code].<br/>
+                                    Please submit the address before adding any games into your list
+                                </p>
+                                <input
+                                    type="text"
+                                    placeholder="Arcade Name"
+                                    value={newArcade.name}
+                                    onChange={handleNewArcadeNameChange}
+                                />
+                                <ArcOwnInfoRetrieval
+                                    setArcadeAddress={setArcadeAddress}
+                                    addGameToList={addGameToList}
+                                    addressSubmitted={addressSubmitted}
+                                />
+                                <button onClick={handleAddArcade}>Add Arcade</button>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
             </div>
         </div>
     );
