@@ -1,10 +1,11 @@
 import React from 'react';
 import { GoogleMap, LoadScript}  from '@react-google-maps/api';
 import { useState, useEffect } from 'react';
+import './search.css'
 
 
 const containerStyle = {
-  width: '400px',
+  width: '60%',
   height: '400px'
 };
 
@@ -49,18 +50,16 @@ function Map({location}) {
     /*AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q*/
 
     return (
-        <LoadScript googleMapsApiKey="" >
-
-
-    
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={10}>
-            </GoogleMap>
-            
-
+      <div className='map-container'>
+        <LoadScript googleMapsApiKey="" > 
+          <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={center}
+              zoom={10}>
+          </GoogleMap>
         </LoadScript>
+      </div>
+        
     )
 }
 
