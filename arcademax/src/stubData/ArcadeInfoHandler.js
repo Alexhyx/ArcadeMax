@@ -12,6 +12,14 @@ export const ArcadeInfoProvider = ({children}) => {
     });
     
     const addInformation=(arcadeLocation, gameList)=>{
+        const allGameLocations = localStorage.getItem("gameLocations");
+        if (allGameLocations == null){
+                addGameLocation(gameLocations)
+        }
+        else{
+            addGameLocation(allGameLocations);
+        }
+        
         gameList.forEach(game=>{
             if(game in gameLocations) {
                 addGameLocation(addressesInList=>({
@@ -26,8 +34,9 @@ export const ArcadeInfoProvider = ({children}) => {
                 }));
             }
         });
-
-        console.log(gameLocations);
+        
+        localStorage.setItem("gameLocations", gameLocations)
+        console.log("InsideInfoHandler:", gameLocations);
     }
 
     

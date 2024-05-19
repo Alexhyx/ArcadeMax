@@ -6,6 +6,8 @@ import './GameLocationDropdowns.css';
 
 const GameLocationDropdowns = ({onLocationSelect}) =>{
     const {gameLocations} = useArcadeInfoHandler();
+
+    console.log("hi ", localStorage.getItem("gameLocations"))
     const [games] = useState(Object.keys(gameLocations))
     const [showLocations, setShowLocations] = useState(false);
     const [locations, setLocations] = useState([])
