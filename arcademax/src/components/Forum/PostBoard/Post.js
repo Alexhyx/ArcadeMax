@@ -46,35 +46,36 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
     }
 
     return (
-        <div className = "Post">
-            <h3>{title}</h3>
-            <p>{content}</p>
-            <button id ="likeButton" onClick = {addLike}>Likes {totalLikes}</button>
-            <button onClick = {toggleExpanding}>{expanding ? "View Less" : "View More"}</button>
+        <div className="post-container">
+            <div className = "Post">
+                <h3>{title}</h3>
+                <p>{content}</p>
+                <button id ="likeButton" onClick = {addLike}>Likes {totalLikes}</button>
+                <button onClick = {toggleExpanding}>{expanding ? "View Less" : "View More"}</button>
 
-            <div className = "comments" style={{ display: expanding ? 'block' : 'none' }}>
-                <form onSubmit={submitComment}>
-                    <input 
-                    type = "text" 
-                    value = {temporaryComment} 
-                    onChange = {(e)=>changecomment(e.target.value)}
-                    />
+                <div className = "comments" style={{ display: expanding ? 'block' : 'none' }}>
+                    <form onSubmit={submitComment}>
+                        <input 
+                        type = "text" 
+                        value = {temporaryComment} 
+                        onChange = {(e)=>changecomment(e.target.value)}
+                        />
 
-        
-                    <button type="submit">Comment</button>
-                </form>
+            
+                        <button type="submit">Comment</button>
+                    </form>
 
-                {comments.map((comment, index) =>(
-                    <p key={index}>{comment}</p>
-                ))
-                
-                }
-                
+                    {comments.map((comment, index) =>(
+                        <p key={index}>{comment}</p>
+                    ))
+                    
+                    }
+                    
+                </div>
+
+                <br></br>
             </div>
-
-            <br></br>
         </div>
-
     );
 
 };

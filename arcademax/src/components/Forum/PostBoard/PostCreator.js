@@ -30,7 +30,7 @@ const PostCreator =({createPost})=>{
             />
             <button type="submit">Post</button>
         </form>
-        )
+    )
 
 }
 
