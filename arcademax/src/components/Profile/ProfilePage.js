@@ -5,7 +5,7 @@ import ProfileInformation from './RegularInfo';
 import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 
-const Profile = ({}) => {
+const Profile = () => {
     const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
     const [username, setUsername] = useState(localStorage.getItem("username"));
     const [pronouns, setPronouns] = useState('');
@@ -68,17 +68,20 @@ const Profile = ({}) => {
 
     return (
         <div className="profile">
-            <ProfilePicture
-                isEditing={isEditing}
-                profilePicture={profilePicture}
-            />
-            <EditButtons
-                isEditing={isEditing}
-                handleEditClick={handleEditClick}
-                handleCancelClick={handleCancelClick}
-                handlePictureChange={handlePictureChange}
-                handleSaveClick={handleSaveClick}
-            />
+            <div className='profile-left'>
+                <ProfilePicture
+                    isEditing={isEditing}
+                    profilePicture={profilePicture}
+                />
+                <EditButtons
+                    isEditing={isEditing}
+                    handleEditClick={handleEditClick}
+                    handleCancelClick={handleCancelClick}
+                    handlePictureChange={handlePictureChange}
+                    handleSaveClick={handleSaveClick}
+                />
+            </div>
+            
             {(userType === 'regular' || userType === 'admin') && (
                 <>
                     <ProfileInformation

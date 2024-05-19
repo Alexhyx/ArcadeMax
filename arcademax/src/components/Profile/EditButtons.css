@@ -1,0 +1,13 @@
+.profileButtons{
+    text-decoration: underline;
+    color: #204271;
+    cursor: pointer;
+    background-color:#ffffff;
+}
+
+/* #save-profile-button {
+    text-decoration: underline;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #845698ff;
+} */
