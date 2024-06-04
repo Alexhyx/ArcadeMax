@@ -7,9 +7,8 @@ import './search.css';
 
 function Search() {
     const [selectedLocation, setSelectedLocation] = useState('');
-    const [showPopup, setShowPopup] = useState(false); // Step 2
+    const [showPopup, setShowPopup] = useState(false);
 
-    // Step 3: Function to toggle pop-up visibility
     const togglePopup = () => {
         setShowPopup(!showPopup);
     };
@@ -23,7 +22,7 @@ function Search() {
             </ArcadeInfoProvider>
             
             {/* Pop-up Window for Arcade Input Form */}
-            <div className="centered-container"> {/* Container to center the button */}
+            <div className="centered-container">
                 <button onClick={togglePopup}>Show Input Form</button>
             </div>
             {showPopup && <ArcadeInputForm onClose={togglePopup} />}

@@ -1,4 +1,3 @@
-/* Centering the dropdown and styling it */
 .dropdowns {
     background-color: #ffffff;
     border-radius: 20px;
@@ -30,6 +29,7 @@
     margin: 0;
     display: flex;
     flex-direction: column; /* Ensure items stack vertically */
+    width: 100%; /* Ensure the list takes the full width */
 }
 
 .list-item {
@@ -39,7 +39,6 @@
     width: 100%; /* Ensure each item takes the full width of its container */
 }
 
-/* 
-.list-item:last-child {
-    border-bottom: none;
-} */
+.list-item:hover {
+    background-color: #f0f0f0; /* Highlight item on hover */
+}

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useArcadeInfoHandler } from "../../stubData/ArcadeInfoHandler";
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 import './GameLocationDropdowns.css';
 
 const GameLocationDropdowns = ({ onLocationSelect }) => {
@@ -8,26 +10,30 @@ const GameLocationDropdowns = ({ onLocationSelect }) => {
     const [showLocations, setShowLocations] = useState(false);
     const [locations, setLocations] = useState([]);
 
-    const displayLocations = (e) => {
-        console.log(e.target.value);
-        const key = e.target.value;
-        setShowLocations(true);
-        setLocations(gameLocations[key]);
+    const displayLocations = (event, value) => {
+        if (value) {
+            setShowLocations(true);
+            setLocations(gameLocations[value]);
+        } else {
+            setShowLocations(false);
+            setLocations([]);
+        }
     };
 
     const changeMap = (location) => {
-        console.log(location);
         onLocationSelect(location);
     };
 
     return (
         <div className="dropdowns">
-            <select id="allGames" onChange={displayLocations} defaultValue="">
-                <option value="" disabled hidden>Select a game</option>
-                {games.map((game, index) => (
-                    <option key={index} value={game}> {game} </option>
-                ))}
-            </select>
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={games}
+                sx={{ width: 300 }}
+                onChange={displayLocations}
+                renderInput={(params) => <TextField {...params} label="Game" />}
+            />
 
             {showLocations && (
                 <ul className="address-list">
