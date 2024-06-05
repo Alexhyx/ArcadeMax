@@ -9,5 +9,16 @@
     padding: 10px;
     box-sizing: border-box;
     word-wrap: break-word;
-    max-width: 300px; 
+    max-width: 500px; 
+}
+
+.post-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px; 
+    overflow: hidden;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
 }

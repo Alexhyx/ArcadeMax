@@ -61,11 +61,3 @@ nav ul li a.active, nav ul li a:hover {
     width: 100%;
     height: auto;
 }
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.75em;
-    color: #666;
-    background-color: #f6f3ffff; /* Light grey */
-}

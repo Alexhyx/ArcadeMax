@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.css'; 
 import Profile from '../Profile/ProfilePage';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const { loginWithRedirect } = useAuth0();
+    const { logout } = useAuth0();
+    const { user, isAuthenticated} = useAuth0();
 
     const navigate = useNavigate();
 
@@ -28,19 +33,10 @@ function LoginForm() {
 
     return (
         <div className="login-form-container">
-            <form onSubmit={handleSubmit} className="login-form">
-                <div className="form-group">
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" value={username} onChange={UsernameChange} required />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={password} onChange={PasswordChange} required />
-                </div>
-                <div className="form-actions">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
+            
+            <button onClick={() => loginWithRedirect()}>Login</button>
+            <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
+            {isAuthenticated && (<p>{user.name}</p>)}
         </div>
     );
 }

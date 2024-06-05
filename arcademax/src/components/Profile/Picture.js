@@ -1,5 +1,5 @@
 import React from 'react';
-import './Profile.css';
+import './Picture.css';
 
 const ProfilePicture = ({ isEditing, profilePicture }) => (
     <div className="profile-picture-section">

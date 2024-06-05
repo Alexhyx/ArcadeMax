@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import './Profile.css';
 import ProfilePicture from './Picture';
 import ProfileInformation from './RegularInfo';
 import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 
-const Profile = ({}) => {
+const Profile = () => {
     const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
-    const loc = useLocation();
+    // const loc = useLocation();
     const [username, setUsername] = useState(localStorage.getItem("username"));
     const [pronouns, setPronouns] = useState('');
     const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
@@ -69,44 +69,48 @@ const Profile = ({}) => {
     };
 
     return (
-        <div className="profile">
-            <ProfilePicture
-                isEditing={isEditing}
-                profilePicture={profilePicture}
-            />
-            <EditButtons
-                isEditing={isEditing}
-                handleEditClick={handleEditClick}
-                handleCancelClick={handleCancelClick}
-                handlePictureChange={handlePictureChange}
-                handleSaveClick={handleSaveClick}
-            />
-            {(userType === 'regular' || userType === 'admin') && (
-                <>
-                    <ProfileInformation
+        <div>
+            <h1 className='info-category' id='profile-page'>Establishment Profile</h1>
+            <div className="profile">
+                <div className='profile-left'>
+                    <ProfilePicture
                         isEditing={isEditing}
-                        username={username}
-                        pronouns={pronouns}
-                        about={about}
-                        handleRegularInputChange={handleRegularInputChange}
+                        profilePicture={profilePicture}
                     />
-                </>
+                    <EditButtons
+                        isEditing={isEditing}
+                        handleEditClick={handleEditClick}
+                        handleCancelClick={handleCancelClick}
+                        handlePictureChange={handlePictureChange}
+                        handleSaveClick={handleSaveClick}
+                    />
+                </div>
                 
-            )}
-            {userType === 'arcadeOwner' && (
-                <>
-                    <OwnerInformation
-                        isEditing={isEditing}
-                        username={username}
-                        about={about}
-                        handleArcOwnerInputChange={handleArcOwnerInputChange}
-                    />
-                </>
-            )}
+                {(userType === 'regular' || userType === 'admin') && (
+                    <>
+                        <ProfileInformation
+                            isEditing={isEditing}
+                            username={username}
+                            pronouns={pronouns}
+                            about={about}
+                            handleRegularInputChange={handleRegularInputChange}
+                        />
+                    </>
+                    
+                )}
+                {userType === 'arcadeOwner' && (
+                    <>
+                        <OwnerInformation
+                            isEditing={isEditing}
+                            username={username}
+                            about={about}
+                            handleArcOwnerInputChange={handleArcOwnerInputChange}
+                        />
+                    </>
+                )}
+            </div>
         </div>
-        
     );
-
 }
 
 export default Profile;
