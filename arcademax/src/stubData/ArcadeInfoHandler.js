@@ -10,6 +10,7 @@ export const ArcadeInfoProvider = ({children}) => {
         "DDR":["4560 Oregon St, San Diego, CA"],
         "DanceMania":["260 Aldrich Hall Irvine, CA"]
     });
+
     
     const addInformation=(arcadeLocation, gameList)=>{
         gameList.forEach(game=>{
