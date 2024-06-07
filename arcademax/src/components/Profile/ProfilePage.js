@@ -10,11 +10,13 @@ const Profile = ({ userId }) => {
     const {
         user,
         isEditing,
+        editingArcadeId,
         handleEditClick,
         handleSaveClick,
         handleCancelClick,
         handleInputChange,
-        handlePictureChange
+        handlePictureChange,
+        setEditingArcadeId,
     } = useProfileState(userId);
 
     if (!user) {
@@ -51,6 +53,8 @@ const Profile = ({ userId }) => {
                 {user.userType === 'arcadeOwner' && (
                     <OwnerInformation
                         isEditing={isEditing}
+                        editingArcadeId={editingArcadeId}
+                        setEditingArcadeId={setEditingArcadeId}
                         username={user.username}
                         about={user.about}
                         handleArcOwnerInputChange={handleInputChange}

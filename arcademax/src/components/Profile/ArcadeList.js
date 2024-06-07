@@ -3,9 +3,8 @@ import './Profile.css';
 import round1Data from './round1Data';
 import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval';
 
-const ArcadeListInfo = ({ isEditing }) => {
+const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     const [arcades, setArcades] = useState(round1Data);
-    const [editingArcadeId, setEditingArcadeId] = useState(null);
     const [editedArcade, setEditedArcade] = useState({});
     const [newArcade, setNewArcade] = useState({ name: '', address: '', games: [] });
     const [addressSubmitted, setAddressSubmitted] = useState(false);
@@ -108,28 +107,28 @@ const ArcadeListInfo = ({ isEditing }) => {
                         )}
                     </div>
                 ))}
-                    {isEditing && (
+                {isEditing && (
+                    <div>
+                        <h2 className="info-category">Add New Arcade</h2>
                         <div>
-                            <h2 className="info-category">Add New Arcade</h2>
-                            <div>
-                                <p>Please Input Address like: [Street Number & Name], [City], [State], [Country], [Postal Code].<br/>
-                                    Please submit the address before adding any games into your list
-                                </p>
-                                <input
-                                    type="text"
-                                    placeholder="Arcade Name"
-                                    value={newArcade.name}
-                                    onChange={handleNewArcadeNameChange}
-                                />
-                                <ArcOwnInfoRetrieval
-                                    setArcadeAddress={setArcadeAddress}
-                                    addGameToList={addGameToList}
-                                    addressSubmitted={addressSubmitted}
-                                />
-                                <button onClick={handleAddArcade}>Add Arcade</button>
-                            </div>
+                            <p>Please Input Address like: [Street Number & Name], [City], [State], [Country], [Postal Code].<br/>
+                                Please submit the address before adding any games into your list
+                            </p>
+                            <input
+                                type="text"
+                                placeholder="Arcade Name"
+                                value={newArcade.name}
+                                onChange={handleNewArcadeNameChange}
+                            />
+                            <ArcOwnInfoRetrieval
+                                setArcadeAddress={setArcadeAddress}
+                                addGameToList={addGameToList}
+                                addressSubmitted={addressSubmitted}
+                            />
+                            <button onClick={handleAddArcade}>Add Arcade</button>
                         </div>
-                    )}
+                    </div>
+                )}
             </div>
         </div>
     );

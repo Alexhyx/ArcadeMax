@@ -11,7 +11,8 @@ import LoginForm from './components/LoginPage/LoginForm';
 
 
 function App() {
-  const userId = 3; 
+  // const userId = 1 //regular ID
+  const userId = 3; //arcade Owner ID
   return (
     <BrowserRouter>
       <NavBar/>

@@ -5,6 +5,7 @@ const useProfileState = (userId) => {
     const [user, setUser] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [originalValues, setOriginalValues] = useState({});
+    const [editingArcadeId, setEditingArcadeId] = useState(null);
 
     useEffect(() => {
         const currentUser = users.find(u => u.id === userId);
@@ -28,6 +29,7 @@ const useProfileState = (userId) => {
     const handleCancelClick = () => {
         setUser(originalValues);
         setIsEditing(false);
+        setEditingArcadeId(null); 
     };
 
     const handleInputChange = (event) => {
@@ -52,14 +54,18 @@ const useProfileState = (userId) => {
         }
     };
 
+    
+
     return {
         user,
         isEditing,
+        editingArcadeId,
         handleEditClick,
         handleSaveClick,
         handleCancelClick,
         handleInputChange,
-        handlePictureChange
+        handlePictureChange,
+        setEditingArcadeId,
     };
 };
 
