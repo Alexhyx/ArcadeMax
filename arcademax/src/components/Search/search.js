@@ -8,7 +8,7 @@ import './search.css';
 function Search() {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-  const radius = 5000; // Example radius in meters
+  // const radius = 3000;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -23,7 +23,7 @@ function Search() {
       <h1 className='title' id='search-title'>Arcade Search</h1>
       <ArcadeInfoProvider>
         <GameLocationDropdowns onLocationSelect={handleLocationSelect} />
-        <Map location={selectedLocation} radius={radius} />
+        <Map location={selectedLocation}/>
       </ArcadeInfoProvider>
       
       <div className="centered-container">

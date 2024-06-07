@@ -12,11 +12,10 @@ const defaultCenter = {
   lng: 150.644
 };
 
-function Map({ location, radius }) {
+const Map = React.memo(({ location }) => {
   const [center, setMapCenter] = useState(defaultCenter);
 
   useEffect(() => {
-    console.log('Map location:', location);
     if (location && window.google && window.google.maps) {
       const geocoder = new window.google.maps.Geocoder();
       geocoder.geocode({ address: location }, (results, status) => {
@@ -32,21 +31,25 @@ function Map({ location, radius }) {
   return (
     <div className='map-container'>
       {location && (
-        <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q">
-          <GoogleMap
-            mapContainerStyle={containerStyle}
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+        >
+          <Circle
             center={center}
-            zoom={10}
-          >
-            <Circle
-              center={center}
-              radius={radius}
-            />
-          </GoogleMap>
-        </LoadScript>
+            radius={center}
+          />
+        </GoogleMap>
       )}
     </div>
   );
-}
+});
 
-export default Map;
+const MapWithScript = ({ location, radius }) => (
+  <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q">
+    <Map location={location} radius={radius} />
+  </LoadScript>
+);
+
+export default MapWithScript;
