@@ -1,42 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.css'; 
-import Profile from '../Profile/ProfilePage';
-import { useAuth0 } from "@auth0/auth0-react";
+import { auth } from '../../firebase';
+
+import SignUp from './SignUp';
+import SignOut from './SignOut';
+import SignIn from './SignIn';
+
+
+
 
 function LoginForm() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
-    const { loginWithRedirect } = useAuth0();
-    const { logout } = useAuth0();
-    const { user, isAuthenticated} = useAuth0();
+    const [signedIn, setSignedIn] =  useState(false);
+    const [signUp, setSignedUp] = useState(false);
 
-    const navigate = useNavigate();
+    useEffect(()=>{
+        const userState = auth.onAuthStateChanged(user => {
+            if (user) {
+                setSignedIn(true);
+            } else {
+                setSignedIn(false);
+            }
+        });
 
-    const UsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
+        return () => userState();
+    }, []);
 
-    const PasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSignUpComponent = ()=>{
+        if (signUp === false){
+            setSignedUp(true);
+        }
+        else{
+            setSignedUp(false);
+        }
         
-        localStorage.setItem("username", username)
-        
-        navigate('/ProfilePage', { state: { username: username } });
-        
     };
+    
+    
+    
+    
 
     return (
         <div className="login-form-container">
             
-            <button onClick={() => loginWithRedirect()}>Login</button>
-            <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
-            {isAuthenticated && (<p>{user.name}</p>)}
+
+            
+            
+            {!signedIn && !signUp && (
+                <>
+                <p>Sign In:</p>
+                <SignIn/>
+                <p>Don't have an Account?</p>
+                <p onClick={handleSignUpComponent} style={{ cursor: 'pointer', color: 'blue'}}>
+                    Sign Up!
+                </p>
+                </>
+            )}
+
+            {signUp && (
+                <>
+                <p>Sign Up:</p>
+                <SignUp/>
+                <br></br>
+                </>
+            )}
+
+
+            {signedIn && (
+                <>
+                <SignOut/>
+                </>
+            )}
         </div>
     );
 }
