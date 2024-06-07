@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import './Profile.css';
-import round1Data from './round1Data';
+import users from '../../stubData/usersData';
 import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval';
 
 const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
-    const [arcades, setArcades] = useState(round1Data);
+    const arcadeOwner = users.find(user => user.userType === 'arcadeOwner');
+    const [arcades, setArcades] = useState(arcadeOwner.arcadeLocations);
     const [editedArcade, setEditedArcade] = useState({});
     const [newArcade, setNewArcade] = useState({ name: '', address: '', games: [] });
     const [addressSubmitted, setAddressSubmitted] = useState(false);
 
-    const handleEditArcade = (id) => {
-        setEditingArcadeId(id);
-        const arcade = arcades.find(arcade => arcade.id === id);
+    const handleEditArcade = (location_id) => {
+        setEditingArcadeId(location_id);
+        const arcade = arcades.find(arcade => arcade.location_id === location_id);
         setEditedArcade(arcade);
     };
 
@@ -33,7 +34,7 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     const handleSaveArcade = () => {
         setArcades(prevArcades =>
             prevArcades.map(arcade =>
-                arcade.id === editedArcade.id ? editedArcade : arcade
+                arcade.location_id === editedArcade.location_id ? editedArcade : arcade
             )
         );
         setEditingArcadeId(null);
@@ -41,7 +42,7 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     };
 
     const handleAddArcade = () => {
-        setArcades([...arcades, { ...newArcade, id: arcades.length + 1 }]);
+        setArcades([...arcades, { ...newArcade, location_id: arcades.length + 1 }]);
         setNewArcade({ name: '', address: '', games: [] });
         setAddressSubmitted(false);
     };
@@ -65,28 +66,31 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     return (
         <div>
             <h2 className="info-category" id="arcade-heading">Arcade Locations</h2>
-            <div>
+            <div className="arcade-list">
                 {arcades.map(arcade => (
-                    <div key={arcade.id} className="arcade-item">
-                        {editingArcadeId === arcade.id ? (
+                    <div key={arcade.location_id} className="arcade-item">
+                        {editingArcadeId === arcade.location_id ? (
                             <div>
                                 <input
                                     type="text"
                                     name="name"
                                     value={editedArcade.name}
                                     onChange={handleArcadeChange}
+                                    placeholder="Arcade Name"
                                 />
                                 <input
                                     type="text"
                                     name="address"
                                     value={editedArcade.address}
                                     onChange={handleArcadeChange}
+                                    placeholder="Address"
                                 />
                                 <input
                                     type="text"
                                     name="games"
-                                    value={editedArcade.games}
+                                    value={editedArcade.games.join(', ')}
                                     onChange={handleArcadeChange}
+                                    placeholder="Games (comma separated)"
                                 />
                                 <button onClick={handleSaveArcade}>Save</button>
                             </div>
@@ -102,7 +106,7 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
                                         </div>
                                     ))}
                                 </div>
-                                {isEditing && <button onClick={() => handleEditArcade(arcade.id)}>Manage</button>}
+                                {isEditing && <button onClick={() => handleEditArcade(arcade.location_id)}>Manage</button>}
                             </div>
                         )}
                     </div>

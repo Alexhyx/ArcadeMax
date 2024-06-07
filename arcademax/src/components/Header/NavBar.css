@@ -2,7 +2,7 @@ nav {
     background-color: #845698ff;
 }
 
-ul {
+.navbar-ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -10,11 +10,11 @@ ul {
     justify-content: center; /* Centers the navigation items horizontally */
 }
 
-li {
+.navbar-li {
     display: inline;
 }
 
-li a {
+.navbar-li a {
     display: inline-block;
     color: white;
     text-align: center;
@@ -22,6 +22,6 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+.navbar-li a:hover {
     background-color: #c9a6d8ff;
 }

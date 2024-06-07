@@ -54,8 +54,6 @@ const useProfileState = (userId) => {
         }
     };
 
-    
-
     return {
         user,
         isEditing,
