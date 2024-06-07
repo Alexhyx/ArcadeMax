@@ -1,4 +1,3 @@
-// ProfilePage.js
 import React from 'react';
 import './Profile.css';
 import ProfilePicture from './Picture';
@@ -7,30 +6,29 @@ import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 import useProfileState from './userProfileState';
 
-const Profile = () => {
+const Profile = ({ userId }) => {
     const {
-        userType,
-        username,
-        pronouns,
-        about,
-        profilePicture,
+        user,
         isEditing,
         handleEditClick,
         handleSaveClick,
         handleCancelClick,
-        handleRegularInputChange,
-        handleArcOwnerInputChange,
+        handleInputChange,
         handlePictureChange
-    } = useProfileState();
+    } = useProfileState(userId);
+
+    if (!user) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
-            <h1 className='info-category' id='profile-page'>Establishment Profile</h1>
+            <h1 className='info-category' id='profile-page'>Profile</h1>
             <div className="profile">
                 <div className='profile-left'>
                     <ProfilePicture
                         isEditing={isEditing}
-                        profilePicture={profilePicture}
+                        profilePicture={user.profilePicture}
                     />
                     <EditButtons
                         isEditing={isEditing}
@@ -41,21 +39,21 @@ const Profile = () => {
                     />
                 </div>
                 
-                {(userType === 'regular' || userType === 'admin') && (
+                {(user.userType === 'regular' || user.userType === 'admin') && (
                     <ProfileInformation
                         isEditing={isEditing}
-                        username={username}
-                        pronouns={pronouns}
-                        about={about}
-                        handleRegularInputChange={handleRegularInputChange}
+                        username={user.username}
+                        pronouns={user.pronouns}
+                        about={user.about}
+                        handleRegularInputChange={handleInputChange}
                     />
                 )}
-                {userType === 'arcadeOwner' && (
+                {user.userType === 'arcadeOwner' && (
                     <OwnerInformation
                         isEditing={isEditing}
-                        username={username}
-                        about={about}
-                        handleArcOwnerInputChange={handleArcOwnerInputChange}
+                        username={user.username}
+                        about={user.about}
+                        handleArcOwnerInputChange={handleInputChange}
                     />
                 )}
             </div>

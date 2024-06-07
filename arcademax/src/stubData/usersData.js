@@ -23,7 +23,7 @@ const users = [
       password: "password3",
       userType: "arcadeOwner",
       about: "Round 1 - Japanese Arcade Games",
-      profilePicture: "round1-pfp.jpg",
+      profilePicture: "round1-pfp.png",
     },
 ];
 export default users;

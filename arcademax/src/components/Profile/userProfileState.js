@@ -1,19 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import users from '../../stubData/usersData';
 
-const useProfileState = () => {
-    const [userType, setUserType] = useState('arcadeOwner'); // Possible values: 'regular', 'admin,' 'arcadeOwner'
-    const [username, setUsername] = useState(localStorage.getItem("username"));
-    const [pronouns, setPronouns] = useState('');
-    const [about, setAbout] = useState('Round 1 - a multi-entertainment facility offering Bowling, Arcade Games, Billiards, Karaoke, Ping Pong, Darts, and another entertainment-like activities');
-    const [profilePicture, setProfilePicture] = useState('round1-pfp.png');
+const useProfileState = (userId) => {
+    const [user, setUser] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
-    const [originalValues, setOriginalValues] = useState({ username, pronouns, about, profilePicture });
+    const [originalValues, setOriginalValues] = useState({});
+
+    useEffect(() => {
+        const currentUser = users.find(u => u.id === userId);
+        if (currentUser) {
+            setUser(currentUser);
+            setOriginalValues(currentUser);
+        }
+    }, [userId]);
 
     const handleEditClick = () => {
         setIsEditing(!isEditing);
         if (!isEditing) {
-            // Store original values for cancel functionality
-            setOriginalValues({ username, pronouns, about, profilePicture });
+            setOriginalValues(user);
         }
     };
 
@@ -22,57 +26,39 @@ const useProfileState = () => {
     };
 
     const handleCancelClick = () => {
-        // Revert back to original values
-        setUsername(originalValues.username);
-        setPronouns(originalValues.pronouns);
-        setAbout(originalValues.about);
-        setProfilePicture(originalValues.profilePicture);
+        setUser(originalValues);
         setIsEditing(false);
     };
 
-    const handleRegularInputChange = (event) => {
+    const handleInputChange = (event) => {
         const { name, value } = event.target;
-        if (name === 'username') {
-            setUsername(value);
-        } else if (name === 'pronouns') {
-            setPronouns(value);
-        } else if (name === 'about') {
-            setAbout(value);
-        }
+        setUser(prevUser => ({
+            ...prevUser,
+            [name]: value
+        }));
     };
-
-    const handleArcOwnerInputChange = (event) => {
-        const { name, value } = event.target;
-        if (name === 'username') {
-            setUsername(value);
-        } else if (name === 'about') {
-            setAbout(value);
-        }
-    }
 
     const handlePictureChange = (event) => {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setProfilePicture(reader.result);
+                setUser(prevUser => ({
+                    ...prevUser,
+                    profilePicture: reader.result
+                }));
             };
             reader.readAsDataURL(file);
         }
     };
 
     return {
-        userType,
-        username,
-        pronouns,
-        about,
-        profilePicture,
+        user,
         isEditing,
         handleEditClick,
         handleSaveClick,
         handleCancelClick,
-        handleRegularInputChange,
-        handleArcOwnerInputChange,
+        handleInputChange,
         handlePictureChange
     };
 };
