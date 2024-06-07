@@ -17,22 +17,6 @@ const defaultCenter = {
 function Map({location}) {
     
     const [center, setMapCenter] = useState(defaultCenter);
-    /*const [location, setlocation] = useState('');
-
-    const changeLocation = (event) => {
-        setlocation(event.target.value);
-      };
-    
-      const locationFinder = () => {
-        const geocoder = new window.google.maps.Geocoder();
-        geocoder.geocode({ address: location }, (results, status) => {
-          if (status === 'OK') {
-            setMapCenter(results[0].geometry.location);
-          } else {
-            alert('Geocode was not successful: ' + status);
-          }
-        });
-      };*/
       useEffect(() => {
         if (location) {
           const geocoder = new window.google.maps.Geocoder();

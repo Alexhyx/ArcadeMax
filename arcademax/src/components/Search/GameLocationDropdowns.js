@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useArcadeInfoHandler } from "../../stubData/ArcadeInfoHandler";
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+import Map from './Map';
 import './GameLocationDropdowns.css';
 
 const GameLocationDropdowns = ({ onLocationSelect }) => {
