@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Circle } from '@react-google-maps/api';
+import { GoogleMap, LoadScript} from '@react-google-maps/api';
 import './search.css';
 
 const containerStyle = {
@@ -34,12 +34,8 @@ const Map = React.memo(({ location }) => {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={10}
+          zoom={15}
         >
-          <Circle
-            center={center}
-            radius={center}
-          />
         </GoogleMap>
       )}
     </div>

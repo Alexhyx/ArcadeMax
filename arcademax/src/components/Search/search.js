@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { ArcadeInfoProvider } from '../../stubData/ArcadeInfoHandler';
 import GameLocationDropdowns from './GameLocationDropdowns';
-import Map from './Map';
+import MapWithScript from './Map';
 import ArcadeInputForm from '../ArcadeInput/ArcadeInput';
 import './search.css';
 
 function Search() {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-  // const radius = 3000;
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -23,7 +22,7 @@ function Search() {
       <h1 className='title' id='search-title'>Arcade Search</h1>
       <ArcadeInfoProvider>
         <GameLocationDropdowns onLocationSelect={handleLocationSelect} />
-        <Map location={selectedLocation}/>
+        <MapWithScript location={selectedLocation}/>
       </ArcadeInfoProvider>
       
       <div className="centered-container">
