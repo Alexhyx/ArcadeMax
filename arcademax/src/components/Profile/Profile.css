@@ -65,3 +65,46 @@
 .text-box:focus {
     outline: none;
 }
+
+.arcade-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.arcade-item {
+    background-color: #F6F3FF;
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 30px;
+    overflow: hidden;
+    width: 100%;
+    height:auto;
+}
+
+.arcade-item button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.arcade-item button:hover {
+    background-color: #120847;
+}
+
+.arcade-item input {
+    background-color: #F6F3FF;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.arcade-item input:focus {
+    outline: none;
+    border-color: #170A60;
+}

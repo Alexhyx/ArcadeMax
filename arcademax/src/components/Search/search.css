@@ -13,12 +13,12 @@
 }
 
 .map-container > div {
-    border-radius: 15px; /* Add rounded corners */
-    overflow: hidden; /* Ensure that the rounded corners are applied correctly */
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .centered-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Adjust margin top as needed */
+    margin-top: 20px;
 }
