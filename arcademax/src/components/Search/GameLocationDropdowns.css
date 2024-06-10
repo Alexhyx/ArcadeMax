@@ -12,33 +12,34 @@
     flex-direction: column;
 }
 
-#allGames {
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 16px;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-}
-
 .address-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Ensure items stack vertically */
-    width: 100%; /* Ensure the list takes the full width */
+    flex-direction: column;
+    width: 100%;
 }
 
 .list-item {
     padding: 8px;
     cursor: pointer;
     border-bottom: 1px solid #ccc; /* Add a separator line */
-    width: 100%; /* Ensure each item takes the full width of its container */
+    width: 100%;
 }
 
 .list-item:hover {
-    background-color: #f0f0f0; /* Highlight item on hover */
+    background-color: #f0f0f0;
+}
+
+.MuiAutocomplete-listbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.MuiAutocomplete-option {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    box-sizing: border-box;
 }

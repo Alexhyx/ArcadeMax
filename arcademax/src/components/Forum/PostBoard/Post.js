@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import './Post.css' 
 import axios from "axios";
 
-const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) => {
-    
+const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) => {    
+
     const [totalLikes, increaseLikes] = useState(likes);
+    const [isLiked, setIsLiked] = useState(false);
     const [comments, increaseComments] = useState([]);
     const [temporaryComment, changecomment] = useState('');
     const [expanding, setExpanding] = useState(false);
@@ -40,13 +41,20 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
         increaseLikes(likes);
     }, [likes]);
     
-    const addLike = () => {
-        const likeAdded = totalLikes+1;
+    // const addLike = () => {
+    //     const likeAdded = totalLikes+1;
 
-        increaseLikes(likeAdded)
-        likeClick(id, likeAdded)
+    //     increaseLikes(likeAdded)
+    //     likeClick(id, likeAdded)
         
-        console.log(likeAdded)
+    //     console.log(likeAdded)
+    // };
+
+    const toggleLike = () => {
+        const updatedLikes = isLiked ? totalLikes - 1 : totalLikes + 1;
+        increaseLikes(updatedLikes);
+        setIsLiked(!isLiked);
+        likeClick(id, updatedLikes);
     };
 
     const submitComment =(e)=>{
@@ -61,7 +69,9 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
             <div className = "Post">
                 <h3>{title}</h3>
                 <p>{content}</p>
-                <button id ="likeButton" onClick = {addLike}>Likes {totalLikes}</button>
+                <button id="likeButton" onClick={toggleLike}>
+                    {isLiked ? 'Unlike' : 'Like'} {totalLikes}
+                </button>
                 <button onClick = {toggleExpanding}>{expanding ? "View Less" : "View More"}</button>
 
                 <div className = "comments" style={{ display: expanding ? 'block' : 'none' }}>
