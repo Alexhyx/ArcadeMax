@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
 const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted }) => {
     const [ArcadeAddress, setArcadeAddressState] = useState('');
@@ -6,7 +7,7 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
 
     const submitAddress = (e) => {
         e.preventDefault();
-        setArcadeAddress(ArcadeAddress);
+        setArcadeAddress(ArcadeAddress); 
         setArcadeAddressState('');
     };
 
@@ -15,6 +16,30 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
         addGameToList(specificGame);
         setSpecificGame('');
     };
+
+    const postGame = async(address, game) => {
+        address.preventDefault();
+        game.preventDefault();
+
+        const postData = {
+            name: specificGame,
+            address: ArcadeAddress 
+        }
+        /* Pseudo-code:
+        If name is in the json file, need to add it to the list
+        If it's not, then I make a new entry
+        Access database directly, and just query it?
+        Just add to database directly (don't have to worry about it)
+        */
+
+        //Should be database link later
+        await axios.post('http://localhost:4000/game_output', postData)
+        .then(res => console.log(res))
+
+        setSpecificGame('');
+        setArcadeAddressState('');
+    }
+   
 
     return (
         <div className="ArcOwnInfo">

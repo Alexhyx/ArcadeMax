@@ -51,7 +51,7 @@ function Map({location}) {
 
     return (
       <div className='map-container'>
-        <LoadScript googleMapsApiKey="" > 
+        <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q" > 
           <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}

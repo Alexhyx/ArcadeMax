@@ -38,7 +38,6 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
 
     useEffect(() =>{
         increaseLikes(likes);
-
     }, [likes]);
     
     const addLike = () => {
@@ -55,7 +54,6 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
         increaseComments([...comments, temporaryComment]);
         changecomment('');
         
-
     }
 
     return (
@@ -73,8 +71,6 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
                         value = {temporaryComment} 
                         onChange = {(e)=>changecomment(e.target.value)}
                         />
-
-            
                         <button type="submit">Comment</button>
                     </form>
 

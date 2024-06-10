@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useState, useContext } from 'react';
-
+import axios from "axios";
 export const ArcadeInfoContext = createContext();
 
 //TODO:
@@ -10,6 +10,31 @@ export const ArcadeInfoContext = createContext();
 // Might need to make a new file
 // I will do this later :sob: :dying:
 // Use axios for this -> check tutorial
+
+const serverLink = 'http://localhost:4000/games';
+
+/*
+useEffect( () =>{
+    let processing = true;
+    axiosFetchData(processing);
+    return() => {
+        processing = false;
+    }
+}, []
+)
+*/
+
+const fetchGames = async(processing) => {
+    // When fetching from database, make sure to query as list
+    await axios.get(serverLink)
+    .then(res => {
+        if(processing) {
+
+        }
+    })
+};
+
+
 export const ArcadeInfoProvider = ({children}) => {
     const [gameLocations, addGameLocation]= useState({
         "Pump It Up":["29033 Arroyo Drive, Irvine, CA", "2800 N Main St #1100, Santa Ana, CA"],
