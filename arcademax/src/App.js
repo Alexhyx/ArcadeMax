@@ -26,10 +26,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar/>
+      <NavBar signedIn={signedIn} />
       <Routes>
         <Route path="/" element={<Search/>} />
-        <Route path="/Forum" element={<Forum signedIn={signedIn} />} />
+        {signedIn && <Route path="/Forum" element={<Forum signedIn={signedIn} />} />}
         <Route path="/ProfilePage" element={<Profile userId={userId} />}/>
         <Route path="/About" element={<AboutPage/>}/>
         <Route path="/LoginForm" element={<LoginForm/>}/>
