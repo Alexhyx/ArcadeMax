@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import './PostCreator.css'; 
 
 const PostCreator =({createPost})=>{
     const [title, setTitle] = useState('');
@@ -7,15 +7,13 @@ const PostCreator =({createPost})=>{
 
     const submitPost =(e)=>{
         e.preventDefault();
-        //Calls the passed function that will be called outside of the object (see postboard's PostCreator object)
-        createPost(title, content)
+        createPost(title, content);
         setTitle("");
         setContent("");
     };
 
-    
     return (
-        <form onSubmit={submitPost}>
+        <form className="post-creator-form" onSubmit={submitPost}>
             <h2>Title</h2>
             <input
                 type = 'text'
@@ -25,13 +23,13 @@ const PostCreator =({createPost})=>{
             <br></br>
             <h2>Body</h2>
             <textarea
+                className="post-body-textarea"
                 value = {content}
                 onChange = {(e)=>setContent(e.target.value)}
             />
             <button type="submit">Post</button>
         </form>
-    )
-
-}
+    );
+};
 
 export default PostCreator;

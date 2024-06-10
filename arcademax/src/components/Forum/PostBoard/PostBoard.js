@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Post from "./Post";
 import PostCreator from "./PostCreator";
 import './PostBoard.css'; 
+import './PostButton.css';
 
 const PostBoard = () => {
   const [posts, setPosts] = useState([{id:0, title:"Post 1", content:"Content yahh", likes:0}, {id:1, title:"Post 2", content:"Content yahhh", likes:0}]);
-  // State to track which post is currently being viewed in 'View More' mode
   const [viewMorePostId, setViewMorePostId] = useState(null);
-  const [showCreateBoard, setShowCreateBoard] = useState(true); // State to control visibility of createboard
+  const [showCreateBoard, setShowCreateBoard] = useState(false);
 
   const increaseLikes = (id, likeAdded) =>{
     const likedPosts = posts.map((post, i) =>
@@ -23,43 +23,49 @@ const PostBoard = () => {
   }
 
   const handleViewMore = (id) => {
-    console.log("Viewing more for post ID:", id);
     setViewMorePostId(id);
-    setShowCreateBoard(false); // Hide createboard when viewmore is clicked
   };
 
   const handleViewLess = () => {
     setViewMorePostId(null);
-    setShowCreateBoard(true); // Show createboard when viewless is clicked
+  };
+
+  const togglePostCreator = () => {
+    setShowCreateBoard(!showCreateBoard);
   };
 
   return(
-    <div className = "grid-container">
+    <div className="grid-container">
       <div className="menu">
         <p>menu</p>
       </div>
 
-      <div className = "posts">
+      <div className="posts">
         {posts.map(post => (
-          viewMorePostId === null || viewMorePostId === post.id? (
+          viewMorePostId === null || viewMorePostId === post.id ? (
             <Post
-              key = {post.id}
+              key={post.id}
               id={post.id}
-              title = {post.title}
+              title={post.title}
               content={post.content}
               likes={post.likes}
               likeClick={increaseLikes}
               onViewMore={handleViewMore}
               onViewLess={handleViewLess}
             />
-          ):null
+          ) : null
         ))}
       </div>
 
-      <div className="creator">
-        {showCreateBoard && <PostCreator createPost = {addPost}/>}
-      </div>
-     
+      {showCreateBoard && (
+        <div className="create-form">
+          <PostCreator createPost={addPost} />
+        </div>
+      )}
+      
+      <button className="create-button" onClick={togglePostCreator}>
+        {showCreateBoard ? "Close" : "Create Post"}
+      </button>
     </div>
   );
 }
