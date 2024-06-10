@@ -71,6 +71,7 @@ const PostBoard = ({ signedIn }) => {
               likeClick={increaseLikes}
               onViewMore={handleViewMore}
               onViewLess={handleViewLess}
+              signedIn={signedIn}
             />
           ) : null
         ))}
@@ -82,7 +83,7 @@ const PostBoard = ({ signedIn }) => {
         </div>
       )}
       
-      {signedIn && (
+      {signedIn && viewMorePostId === null && (
         <button className="create-button" onClick={togglePostCreator}>
           {showCreateBoard ? "Close" : "Create Post"}
         </button>
