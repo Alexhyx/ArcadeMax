@@ -5,9 +5,15 @@ import './PostBoard.css';
 import './PostButton.css';
 
 const PostBoard = () => {
-  const [posts, setPosts] = useState([{id:0, title:"Post 1", content:"Content yahh", likes:0}, {id:1, title:"Post 2", content:"Content yahhh", likes:0}]);
+  const [posts, setPosts] = useState([
+    {id:0, title:"Post 1", content:"Content yahh", likes:0, category: 'General'}, 
+    {id:1, title:"Post 2", content:"Content yahhh", likes:0, category: 'Dance Dance Revolution'}
+  ]);
   const [viewMorePostId, setViewMorePostId] = useState(null);
   const [showCreateBoard, setShowCreateBoard] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'General', 'Dance Dance Revolution', 'Pump It Up', 'DanceMania'];
 
   const increaseLikes = (id, likeAdded) =>{
     const likedPosts = posts.map((post, i) =>
@@ -16,8 +22,8 @@ const PostBoard = () => {
     setPosts(likedPosts);
   }
 
-  const addPost =(title, content)=>{
-    const postToAdd = {id:posts.length, title:title, content:content, likes:0};
+  const addPost =(title, content, category)=>{
+    const postToAdd = {id:posts.length, title:title, content:content, likes:0, category: category};
     const allPosts = [...posts, postToAdd];
     setPosts(allPosts);
   }
@@ -34,14 +40,26 @@ const PostBoard = () => {
     setShowCreateBoard(!showCreateBoard);
   };
 
+  const filteredPosts = selectedCategory === 'All' 
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory);
+
   return(
     <div className="grid-container">
       <div className="menu">
-        <p>menu</p>
+        {categories.map(category => (
+          <button 
+            key={category} 
+            onClick={() => setSelectedCategory(category)}
+            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       <div className="posts">
-        {posts.map(post => (
+        {filteredPosts.map(post => (
           viewMorePostId === null || viewMorePostId === post.id ? (
             <Post
               key={post.id}
