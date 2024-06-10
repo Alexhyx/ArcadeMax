@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Search/>} />
         {signedIn && <Route path="/Forum" element={<Forum signedIn={signedIn} />} />}
-        <Route path="/ProfilePage" element={<Profile userId={userId} />}/>
+        {signedIn && <Route path="/ProfilePage" element={<Profile userId={userId} />} />}
         <Route path="/About" element={<AboutPage/>}/>
         <Route path="/LoginForm" element={<LoginForm/>}/>
 
