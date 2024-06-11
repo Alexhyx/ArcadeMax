@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import users from '../../stubData/usersData';
+import { useUserContext } from '../../contexts/UserContext';
 
 const useProfileState = (userId) => {
     const [user, setUser] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [originalValues, setOriginalValues] = useState({});
     const [editingArcadeId, setEditingArcadeId] = useState(null);
+
+    const {changeUsername} = useUserContext();
 
     useEffect(() => {
         const currentUser = users.find(u => u.id === userId);
@@ -24,6 +27,7 @@ const useProfileState = (userId) => {
 
     const handleSaveClick = () => {
         setIsEditing(false);
+        changeUsername(user.username);
     };
 
     const handleCancelClick = () => {
@@ -53,6 +57,8 @@ const useProfileState = (userId) => {
             reader.readAsDataURL(file);
         }
     };
+
+    
 
     return {
         user,
