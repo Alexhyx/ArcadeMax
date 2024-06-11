@@ -11,8 +11,8 @@ import { UserContext } from './contexts/UserContext';
 
 
 function App() {
-  // const userId = 1 //regular ID
-  const userId = 3; //arcade Owner ID
+  const userId = 1 //regular ID
+  //const userId = 3; //arcade Owner ID
   return (
     <BrowserRouter>
       <NavBar/>
