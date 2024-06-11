@@ -20,7 +20,7 @@ const Profile = ({ userId }) => {
         setEditingArcadeId,
     } = useProfileState(userId);
 
-    const { userName } = useUserContext();
+    const { userName, bookMarked } = useUserContext();
 
     if (!user) {
         return <div>Loading...</div>;
@@ -45,6 +45,7 @@ const Profile = ({ userId }) => {
                 </div>
                 
                 {(user.userType === 'regular' || user.userType === 'admin') && (
+                    <>
                     <ProfileInformation
                         isEditing={isEditing}
                         username={user.username}
@@ -52,6 +53,11 @@ const Profile = ({ userId }) => {
                         about={user.about}
                         handleRegularInputChange={handleInputChange}
                     />
+                    <p>Bookmarked Locations:</p>
+                    {bookMarked.map(location=>(
+                        <li>{location}</li>
+                    ))};
+                    </>
                 )}
                 {user.userType === 'arcadeOwner' && (
                     <OwnerInformation
@@ -63,6 +69,7 @@ const Profile = ({ userId }) => {
                         handleArcOwnerInputChange={handleInputChange}
                     />
                 )}
+                
             </div>
         </div>
     );
