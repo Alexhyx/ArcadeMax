@@ -5,7 +5,6 @@ import ProfileInformation from './RegularInfo';
 import OwnerInformation from './ArcadeOwnerInfo';
 import EditButtons from './EditButtons';
 import useProfileState from './userProfileState';
-
 import { useUserContext } from '../../contexts/UserContext';
 
 const Profile = ({ userId }) => {
@@ -21,7 +20,7 @@ const Profile = ({ userId }) => {
         setEditingArcadeId,
     } = useProfileState(userId);
 
-    const {userName} = useUserContext();
+    const { userName } = useUserContext();
 
     if (!user) {
         return <div>Loading...</div>;
@@ -48,7 +47,7 @@ const Profile = ({ userId }) => {
                 {(user.userType === 'regular' || user.userType === 'admin') && (
                     <ProfileInformation
                         isEditing={isEditing}
-                        username={user.name}
+                        username={user.username}
                         pronouns={user.pronouns}
                         about={user.about}
                         handleRegularInputChange={handleInputChange}

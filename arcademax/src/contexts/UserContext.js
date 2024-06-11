@@ -13,6 +13,13 @@ export const UserProvider = ({children}) =>{
     const [bookMarked, addBookMarked] = useState([]);
 
     useEffect(()=>{/*Connect to the database here*/},[]);
+    useEffect(() => {
+        console.log("bookMarked updated:", bookMarked);
+    }, [bookMarked]);
+
+    useEffect(() => {
+        console.log("userName updated:", userName);
+    }, [userName]);
 
     const clickAddBookMark = (location) => {
         addBookMarked([...bookMarked, location]);
