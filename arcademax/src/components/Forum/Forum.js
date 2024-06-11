@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PostBoard from './PostBoard/PostBoard';
 
-function Forum() {
+const Forum = ({ signedIn }) => {
     const [selectedLocation, setSelectedLocation] = useState('');
 
     return (
-        <div className='Forum'>
-            <PostBoard/> 
+        <div>
+          <PostBoard signedIn={signedIn} />
         </div>
-    );
+      );
 }
 
 export default Forum;

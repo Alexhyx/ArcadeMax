@@ -53,10 +53,16 @@ const Profile = ({ userId }) => {
                         about={user.about}
                         handleRegularInputChange={handleInputChange}
                     />
-                    <p>Bookmarked Locations:</p>
-                    {bookMarked.map(location=>(
-                        <li>{location}</li>
-                    ))};
+                    <div id="user-info">
+                        <h2 className="info-category" id="bookmarked-heading">Bookmarked Locations</h2>
+                        <div className="info-box">
+                            <div>
+                                {bookMarked.map((location, index) => (
+                                    <li key={index} className="text-box">{location}</li>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                     </>
                 )}
                 {user.userType === 'arcadeOwner' && (
@@ -69,7 +75,6 @@ const Profile = ({ userId }) => {
                         handleArcOwnerInputChange={handleInputChange}
                     />
                 )}
-                
             </div>
         </div>
     );

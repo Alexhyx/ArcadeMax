@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import './Post.css' 
 import axios from "axios";
 
-const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) => {    
+const Post = ({ id, title, content, likes, likeClick, onViewMore, onViewLess, signedIn }) => {
 
     const [totalLikes, increaseLikes] = useState(likes);
     const [isLiked, setIsLiked] = useState(false);
@@ -75,14 +75,16 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
                 <button onClick = {toggleExpanding}>{expanding ? "View Less" : "View More"}</button>
 
                 <div className = "comments" style={{ display: expanding ? 'block' : 'none' }}>
-                    <form onSubmit={submitComment}>
+                    {signedIn && (
+                        <form onSubmit={submitComment}>
                         <input 
-                        type = "text" 
-                        value = {temporaryComment} 
-                        onChange = {(e)=>changecomment(e.target.value)}
+                            type="text" 
+                            value={temporaryComment} 
+                            onChange={(e) => changecomment(e.target.value)}
                         />
                         <button type="submit">Comment</button>
-                    </form>
+                        </form>
+                    )}
 
                     {comments.map((comment, index) =>(
                         <p key={index}>{comment}</p>
