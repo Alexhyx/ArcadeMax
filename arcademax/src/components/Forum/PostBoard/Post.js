@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import './Post.css' 
+import axios from "axios";
 
 const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) => {    
 
@@ -9,6 +10,18 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
     const [comments, increaseComments] = useState([]);
     const [temporaryComment, changecomment] = useState('');
     const [expanding, setExpanding] = useState(false);
+
+
+    /*const axiosPostData = async() => {
+        const postData = {
+          id: posts.length,
+          title: title,
+          content: content,
+          likes: 0
+        }
+      
+        await axios.post('http://localhost:4000')
+      }*/
 
     const toggleExpanding = () => {
         
@@ -26,7 +39,6 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
 
     useEffect(() =>{
         increaseLikes(likes);
-
     }, [likes]);
     
     // const addLike = () => {
@@ -50,7 +62,6 @@ const Post = ({id, title, content, likes, likeClick, onViewMore, onViewLess}) =>
         increaseComments([...comments, temporaryComment]);
         changecomment('');
         
-
     }
 
     return (

@@ -41,7 +41,7 @@ const Map = React.memo(({ location }) => {
     </div>
   );
 });
-
+//
 const MapWithScript = ({ location, radius }) => (
   <LoadScript googleMapsApiKey="AIzaSyDnIrd8-dw2tRW9y8YB03_yIkLNM4YWO9Q">
     <Map location={location} radius={radius} />

@@ -2,7 +2,7 @@ import React from 'react';
 import './Profile.css';
 import ArcadeListInfo from './ArcadeList';
 
-const OwnerInformation = ({ isEditing, editingArcadeId, setEditingArcadeId, username, about, handleArcOwnerInputChange }) => {
+const OwnerInformation = ({ isEditing, username, about, handleArcOwnerInputChange }) => {
     return (
         <div className='profile-right'>
             <div className='profile-info'>
@@ -40,10 +40,7 @@ const OwnerInformation = ({ isEditing, editingArcadeId, setEditingArcadeId, user
                 </div>
             </div>
             <ArcadeListInfo
-                isEditing={isEditing}
-                editingArcadeId={editingArcadeId}
-                setEditingArcadeId={setEditingArcadeId}
-            />
+                isEditing={isEditing}/>
         </div>
     );
 };
