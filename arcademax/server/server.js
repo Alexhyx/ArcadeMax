@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const router = require("./routes/router");
+const mysql = require('mysql')
 
 const app = express();
 
@@ -19,9 +20,20 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
-//Router needs to be at the end
-app.use('/', router);
 
+// We didn't have time to finish implementing this but it's what we would've
+// done with more time
+/*
+const db = mysql.createConnection({
+    host: "localhost",
+    user: 'test',
+    password: 'password',
+    database: 'ArcadeMax'
+})
+*/
+
+
+app.use('/', router)
 //Front end should run on a different server
 const port = 4000;
 const server = app.listen(port, () => {

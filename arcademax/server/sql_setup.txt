@@ -1,0 +1,28 @@
+// Code to setup database
+
+create database ArcadeMax;
+use ArcadeMax;
+
+create table users(
+    id int not null,
+    username varchar(100),
+    userType varchar(25),
+    about varchar(5000),
+    profilePicture varchar(5000),
+    unique(id)
+);
+
+create table games(
+    id int, 
+    location_id int,
+    name varchar(100),
+    address varchar(100),
+    game varchar(50),
+    foreign key(id) references users(id),
+    primary key(id, location_id)
+);
+
+
+//Add stubbed data 
+//Use insert statements to insert data from server.js
+

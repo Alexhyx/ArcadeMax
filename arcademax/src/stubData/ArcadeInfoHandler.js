@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect} from 'react';
 import axios from "axios";
 export const ArcadeInfoContext = createContext();
 
@@ -11,28 +11,7 @@ export const ArcadeInfoContext = createContext();
 // I will do this later :sob: :dying:
 // Use axios for this -> check tutorial
 
-const serverLink = 'http://localhost:4000/games';
 
-/*
-useEffect( () =>{
-    let processing = true;
-    axiosFetchData(processing);
-    return() => {
-        processing = false;
-    }
-}, []
-)
-*/
-
-const fetchGames = async(processing) => {
-    // When fetching from database, make sure to query as list
-    await axios.get(serverLink)
-    .then(res => {
-        if(processing) {
-
-        }
-    })
-};
 
 
 export const ArcadeInfoProvider = ({children}) => {
@@ -43,6 +22,23 @@ export const ArcadeInfoProvider = ({children}) => {
         "Taiko no Tatsujin":["29033 Arroyo Drive, Irvine, CA"]
     });
 
+
+    /*
+    const serverLink = 'http://localhost:4000/games';
+    const [data, setData] = useState([]);
+
+    const fetchGames = async() => {
+    await axios.get(serverLink)
+    .then(res => res.json())
+    .then(data => setData(data))
+    .catch(err => console.log(err))
+    };
+
+
+    useEffect( () =>{
+    fetchGames()
+}, [])
+*/
     
     const addInformation=(arcadeLocation, gameList)=>{
         const allGameLocations = localStorage.getItem("gameLocations");

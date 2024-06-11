@@ -17,6 +17,7 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
     };
     
 
+
     return (
         <div className="ArcOwnInfo">
             {!addressSubmitted && (
