@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-
 import Search from './components/Search/search';
 import NavBar from './components/Header/NavBar';
 import Profile from './components/Profile/ProfilePage';

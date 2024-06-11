@@ -6,7 +6,7 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
 
     const submitAddress = (e) => {
         e.preventDefault();
-        setArcadeAddress(ArcadeAddress);
+        setArcadeAddress(ArcadeAddress); 
         setArcadeAddressState('');
     };
 
@@ -15,6 +15,7 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
         addGameToList(specificGame);
         setSpecificGame('');
     };
+    
 
     return (
         <div className="ArcOwnInfo">
