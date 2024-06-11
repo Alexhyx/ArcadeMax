@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Profile.css';
 import users from '../../stubData/usersData';
 import ArcOwnInfoRetrieval from './ArcOwnInfoRetrieval';
+import axios from "axios";
+
 
 const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     const arcadeOwner = users.find(user => user.userType === 'arcadeOwner');
@@ -45,7 +47,24 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
         setArcades([...arcades, { ...newArcade, location_id: arcades.length + 1 }]);
         setNewArcade({ name: '', address: '', games: [] });
         setAddressSubmitted(false);
+
+        postGame();
     };
+
+
+    const postGame = async() => {
+        const postData = {
+            id: arcadeOwner.id, 
+            location_id: arcades.length,
+            name: newArcade.name,
+            address: newArcade.address,
+            game: newArcade.games
+        }
+
+        //Should be database link later
+        await axios.post('http://localhost:4000/games_output', postData)
+        .then(res => console.log(res))
+    }
 
     const setArcadeAddress = (address) => {
         setNewArcade(prevState => ({ ...prevState, address }));
@@ -128,6 +147,7 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
                                 setArcadeAddress={setArcadeAddress}
                                 addGameToList={addGameToList}
                                 addressSubmitted={addressSubmitted}
+                                arcadeName = {newArcade.name}
                             />
                             <button onClick={handleAddArcade}>Add Arcade</button>
                         </div>
