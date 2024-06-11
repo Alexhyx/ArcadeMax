@@ -11,10 +11,16 @@ Make sure you have the following installed on your machine:
 2. Install the dependencies
   * npm install
 3. Install additional required packages
-* npm install axios express body-parser firebase @mui/material @emotion/react @emotion/styled
+* npm install axios express body-parser firebase @mui/material @emotion/react @emotion/styled mysql
 
 **Running the Application**<br/>
-To start the development server, run:
+To start the development server, run (front-end):
+* npm start 
+Make sure to do this in the arcademax folder
+
+To run the backend :
 * npm start
+Make sure to do this in the server folder and in a different terminal at the same time
+
 
 This will run the application in development mode. Open http://localhost:3000 to view it in the browser.
