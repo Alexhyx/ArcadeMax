@@ -9,6 +9,7 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
     const [editedArcade, setEditedArcade] = useState({});
     const [newArcade, setNewArcade] = useState({ name: '', address: '', games: [] });
     const [addressSubmitted, setAddressSubmitted] = useState(false);
+    const [submittedAddress, setSubmittedAddress] = useState('');
 
     const handleEditArcade = (location_id) => {
         setEditingArcadeId(location_id);
@@ -45,11 +46,13 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
         setArcades([...arcades, { ...newArcade, location_id: arcades.length + 1 }]);
         setNewArcade({ name: '', address: '', games: [] });
         setAddressSubmitted(false);
+        setSubmittedAddress('');
     };
 
     const setArcadeAddress = (address) => {
         setNewArcade(prevState => ({ ...prevState, address }));
         setAddressSubmitted(true);
+        setSubmittedAddress(address);
     };
 
     const addGameToList = (game) => {
@@ -128,6 +131,8 @@ const ArcadeListInfo = ({ isEditing, editingArcadeId, setEditingArcadeId }) => {
                                 setArcadeAddress={setArcadeAddress}
                                 addGameToList={addGameToList}
                                 addressSubmitted={addressSubmitted}
+                                submittedAddress={submittedAddress}
+                                gameList={newArcade.games}
                             />
                             <button onClick={handleAddArcade}>Add Arcade</button>
                         </div>

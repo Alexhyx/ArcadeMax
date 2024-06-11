@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted }) => {
+const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted, submittedAddress, gameList }) => {
     const [ArcadeAddress, setArcadeAddressState] = useState('');
     const [specificGame, setSpecificGame] = useState('');
 
@@ -30,6 +30,11 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
                     <button type="submit">Set Address</button>
                 </form>
             )}
+            {addressSubmitted && (
+                <div>
+                    <p><b>Address:</b> {submittedAddress}</p>
+                </div>
+            )}
             <form onSubmit={addGame}>
                 <input
                     type='text'
@@ -40,6 +45,16 @@ const ArcOwnInfoRetrieval = ({ setArcadeAddress, addGameToList, addressSubmitted
                 />
                 <button type="submit">Add Game</button>
             </form>
+            {gameList.length > 0 && (
+                <div>
+                    <h4>Games List:</h4>
+                    {gameList.map((game, index) => (
+                        <div key={index}>
+                        <li>{game}</li>
+                    </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
